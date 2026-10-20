@@ -10,7 +10,11 @@ Summarize here; put full detail in the files named in each section.
 ## Section 2. Tool check (Step 0)
 2.1 Which agent do you use, and which tool was missing at first? How did you fix it?
 
+Vinh uses Claude Code (neither `agy` nor `codex` is installed). Python 3.12.8, pandas 2.2.2 and scikit-learn 1.5.0 were already there. `nlm` was missing ("command not found"). The agent read the tool's GitHub README, checked that the PyPI package links to the same repo, and explained the install and its disclaimer. Vinh then personally ran `brew install uv` and `uv tool install notebooklm-mcp-cli`, and `nlm --version` printed 0.15.6. *(Yuhe and Shiming: add your own agent and anything that was missing on your machines.)*
+
 2.2 Where is your Census key stored, and how do you know it is not in your submission folder?
+
+In `project-workspace/.env`, one line `CENSUS_API=…`, typed by Vinh in `nano`. Git ignores it (`.gitignore` lists `.env`; `git status --ignored` shows `!! project-workspace/.env`). A ZIP does not obey `.gitignore`, so at submission we delete `.env` from the copy and search the copy for the key. *(Record that zero-hit search result here at submission.)*
 
 ## Section 3. Plan review (Step 3)
 3.1 What did the agent plan for (a) the script, (b) the research skill, (c) the model?

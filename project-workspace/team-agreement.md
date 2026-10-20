@@ -1,16 +1,16 @@
 # Team Agreement
 
-- Team number and members:
-- Case claimed (1 to 5):
+- Team number and members: Team ___ (number not yet confirmed) — Vinh Hoang, Yuhe Luo, Shiming
+- Case claimed (1 to 5): **4, Pet-care business** (Warwick town vs Monroe town). Posted by Yuhe Luo in the Canvas "Week 6 team discussion", Oct 20, 2026, 2:48 PM.
 - Agent each of us uses (agy or Codex):
 
 ## Roles (everyone must be able to explain all three parts)
 
 | Role | Owns | Person |
 |---|---|---|
-| Data owner | Steps 4 and 8: API script, manifest, raw data, geography checks | |
-| Research owner | Steps 5 and 7: research skill, NotebookLM sources, seeded-brief repair | |
-| Model owner | Step 6: tree and forest, model card | |
+| Data owner | Steps 4 and 8: API script, manifest, raw data, geography checks | Vinh Hoang |
+| Research owner | Steps 5 and 7: research skill, NotebookLM sources, seeded-brief repair | Yuhe Luo |
+| Model owner | Step 6: tree and forest, model card | Shiming |
 
 ## Working rules
 
