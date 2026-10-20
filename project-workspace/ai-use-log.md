@@ -2,7 +2,7 @@
 
 Keep this open all week. Add a row every time an agent proposes a command, a file change, or an answer you rely on. An agent saying "done" is never verification: the Verification column must name something you observed yourself.
 
-**Agent used (agy or Codex):**
+**Agent used (agy or Codex):** Vinh: Claude Code (Opus 5.5). Yuhe: ___ Shiming: ___
 
 ## Resume point (update at the end of every session)
 
@@ -20,8 +20,10 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 
 | Command or action | Target | Purpose | Risk | Recovery | Decision (accept / revise / reject) |
 |---|---|---|---|---|---|
-| Example only (delete): `nlm skill install agents --level project` | `.agents/skills/` in this folder | Teach the agent the NotebookLM commands | Overwrites an existing skill folder | Delete the folder and reinstall | Accept |
-| | | | | | |
+| `brew install uv` | Vinh's Mac (Homebrew) | Installer needed for `nlm` (the tool's README recommends uv) | Low: adds one program | `brew uninstall uv` | Accept (run by Vinh personally, 2026-10-20) |
+| `uv tool install notebooklm-mcp-cli` | `~/.local/share/uv/tools/`, `~/.local/bin/nlm` | Install the NotebookLM CLI required by Step 5 | Unofficial tool using internal Google APIs and browser cookies (README disclaimer) | `uv tool uninstall notebooklm-mcp-cli` | Accept: the course requires it; disclaimer read first (run by Vinh personally) |
+| `uv venv --python /opt/homebrew/bin/python3.14 .venv` + `uv pip install pandas scikit-learn numpy requests` | `project-workspace/.venv/` only | Latest pandas 3.0.6 / scikit-learn 1.9.1 without touching Anaconda | Low: isolated folder, git-ignored | Delete `.venv/` | Accept (Vinh asked the agent to install and update all tools) |
+| `brew upgrade gh` | Vinh's Mac | GitHub CLI 2.100.0 → 2.102.0 for the team repo | Low | `brew uninstall gh && brew install gh` | Accept |
 
 ## AI-use records (tool, task, output, my decision, verification, limitation)
 

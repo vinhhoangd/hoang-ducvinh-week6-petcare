@@ -1,0 +1,7 @@
+# Week 6 Python packages (exact versions tested 2026-10-20 on Python 3.14.7).
+# Install into the project's own environment, never into Anaconda:
+#   uv venv --python 3.14 .venv && uv pip install --python .venv/bin/python -r requirements.txt
+pandas==3.0.6
+scikit-learn==1.9.1
+numpy==2.5.4
+requests==2.34.2

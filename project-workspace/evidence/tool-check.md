@@ -4,8 +4,8 @@ Do NOT write any key, token, or cookie in this file. Writing only that a key exi
 
 | Tool | Command I ran | Output (version line only) | If it was missing, what I did |
 |---|---|---|---|
-| Python | `python3 --version` | `Python 3.12.8` | Already installed. |
-| pandas / scikit-learn | `python3 -c "import pandas, sklearn; ..."` | `pandas 2.2.2 scikit-learn 1.5.0` | Already installed. |
+| Python | `python3 --version` (inside `.venv`) | `Python 3.14.7` | The default `python3` was Anaconda 3.12.8. To avoid changing Anaconda (used by other classes), the project got its own environment: `uv venv --python /opt/homebrew/bin/python3.14 .venv` on 2026-10-20. |
+| pandas / scikit-learn | `python3 -c "import pandas, sklearn; print(...)"` (inside `.venv`) | `pandas 3.0.6 scikit-learn 1.9.1` | Were 2.2.2 / 1.5.0 in Anaconda. Updated to the latest in the project environment with `uv pip install pandas scikit-learn numpy requests`; exact versions pinned in `requirements.txt` so teammates get the same setup. |
 | nlm | `nlm --version` | `nlm version 0.15.6` | Was "command not found". The agent read the README of github.com/jacob-bd/gemini-notebook-mcp-cli and checked that PyPI package `notebooklm-mcp-cli` links to that repo. It explained the install and its disclaimer (unofficial, uses internal Google APIs and browser cookies). Vinh then personally ran `brew install uv` (uv 0.13.4) and `uv tool install notebooklm-mcp-cli` on 2026-10-20. It installs into its own environment, and nothing else in Python changed. |
 | Agent (agy or codex) | `claude --version` (Claude Code desktop app) | Claude Code, model Opus 5.5 | Neither `agy` nor `codex` is installed. We use Claude Code as the agent, the same as Weeks 3–5. |
 | Census key stored in `.env` (yes/no, never the value) | `set -a; . ./.env; set +a` | **Yes** (2026-10-20). The agent confirmed only that the file has one `CENSUS_API=` line with a 40-character value; the key was never printed or shown to it | Vinh typed the key in `nano .env` personally. Git ignores `.env` (`git status --ignored` shows `!! project-workspace/.env`) |
