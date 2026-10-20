@@ -29,7 +29,7 @@ _Everyone, before anything else. Keys and logins are typed by each person, never
 - [ ] **[V]** Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why — Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.
 - [ ] **[T]** Write down which agent each of you uses (agy, Codex, or Claude Code) — team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md
 - [ ] **[V]** Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
-- [ ] **[T]** Confirm your team number with the instructor — Needed for the ZIP name Team<Number>-Week6-4.zip and team-agreement.md
+- [ ] **[T]** Confirm your team number with the instructor — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
 
 ### Step 1: Frame the decision
 _Before any AI analysis. File: evidence/decision-frame.md_
@@ -180,7 +180,7 @@ _Whole team_
 - [ ] **[T]** Required tree present: README, ai-use-log, completed-workbook, decision-brief, team files, api-manifest, scripts/pull_data.py, SKILL.md, model/fit_models.py, data/raw, data/clean, data/variable-dictionary.md, all evidence files
 - [ ] **[T]** Copy project-workspace/, delete .env from the copy, search the copy for your key: zero hits
 - [ ] **[T]** Check the automatic 70/100 cap is not triggered: no unrepaired invented statistic, no wrong geography, no unsupported citation
-- [ ] **[T]** ZIP named Team<Number>-Week6-4.zip
+- [ ] **[T]** ZIP named Team3-Week6-4.zip
 - [ ] **[T]** Upload to the team's Google Drive folder, share so the instructor can view, submit the share URL in Canvas
 
 ### Demo: Live demonstration (about 8 min, no slides)

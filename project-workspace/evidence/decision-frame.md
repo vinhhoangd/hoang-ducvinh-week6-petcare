@@ -4,7 +4,7 @@ Fill this in **before** you ask any AI agent to do analysis. Write in your own w
 
 ## Team and case
 
-- Team members: Vinh Hoang, Yuhe Luo, Shiming
+- Team members: Team 3 — Vinh Hoang, Yuhe Luo, Shiming Wan
 - Case claimed (1 cafe, 2 childcare, 3 contractor, 4 pet-care, 5 tutoring): 4, pet-care
 - Date and time the case was claimed on Canvas: Oct 20, 2026, 2:48 PM (Yuhe Luo's reply in "Week 6 team discussion")
 - Two towns you compare (copy from the case table in START-HERE): Warwick town vs Monroe town (CBP 812910, with 541940 as a contrast; FRED CUSR0000SS61031)
