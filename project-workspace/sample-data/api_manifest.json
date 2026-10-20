@@ -1,0 +1,122 @@
+[
+  {
+    "name": "acs5_tracts",
+    "url": "https://api.census.gov/data/2023/acs/acs5?get=NAME%2CB01003_001E%2CB19013_001E%2CB19013_001M%2CB01002_001E%2CB09001_001E%2CB25003_001E%2CB25003_003E%2CB25064_001E%2CB25064_001M%2CB08303_001E%2CB08303_008E%2CB08303_009E%2CB08303_010E%2CB08303_011E%2CB08303_012E%2CB08303_013E%2CB25034_001E%2CB25034_008E%2CB25034_009E%2CB25034_010E%2CB25034_011E%2CB15003_001E%2CB15003_022E%2CB15003_023E%2CB15003_024E%2CB15003_025E&for=tract%3A%2A&in=state%3A36+county%3A071&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:01+00:00",
+    "raw_file": "raw/acs5_tracts.json"
+  },
+  {
+    "name": "cbp_722511",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=722511&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:01+00:00",
+    "raw_file": "raw/cbp_722511.json"
+  },
+  {
+    "name": "cbp_722515",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=722515&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:02+00:00",
+    "raw_file": "raw/cbp_722515.json"
+  },
+  {
+    "name": "cbp_624410",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=624410&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:02+00:00",
+    "raw_file": "raw/cbp_624410.json"
+  },
+  {
+    "name": "cbp_236118",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=236118&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:03+00:00",
+    "raw_file": "raw/cbp_236118.json"
+  },
+  {
+    "name": "cbp_238220",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=238220&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:03+00:00",
+    "raw_file": "raw/cbp_238220.json"
+  },
+  {
+    "name": "cbp_812910",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=812910&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:03+00:00",
+    "raw_file": "raw/cbp_812910.json"
+  },
+  {
+    "name": "cbp_541940",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=541940&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:04+00:00",
+    "raw_file": "raw/cbp_541940.json"
+  },
+  {
+    "name": "cbp_611691",
+    "url": "https://api.census.gov/data/2022/cbp?get=NAME%2CNAICS2017_LABEL%2CESTAB%2CEMP%2CPAYANN&for=county%3A071&in=state%3A36&NAICS2017=611691&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:04+00:00",
+    "raw_file": "raw/cbp_611691.json"
+  },
+  {
+    "name": "fred_CUSR0000SEFV",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SEFV",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:04+00:00",
+    "raw_file": "raw/fred_CUSR0000SEFV.csv"
+  },
+  {
+    "name": "fred_CUSR0000SAF11",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SAF11",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:04+00:00",
+    "raw_file": "raw/fred_CUSR0000SAF11.csv"
+  },
+  {
+    "name": "fred_CUSR0000SEEB",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SEEB",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:04+00:00",
+    "raw_file": "raw/fred_CUSR0000SEEB.csv"
+  },
+  {
+    "name": "fred_WPUID6121",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WPUID6121",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:05+00:00",
+    "raw_file": "raw/fred_WPUID6121.csv"
+  },
+  {
+    "name": "fred_CUSR0000SS61031",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:05+00:00",
+    "raw_file": "raw/fred_CUSR0000SS61031.csv"
+  },
+  {
+    "name": "acs5_towns",
+    "url": "https://api.census.gov/data/2023/acs/acs5?get=NAME%2CB01003_001E%2CB19013_001E%2CB19013_001M%2CB25064_001E%2CB25064_001M%2CB25003_001E%2CB25003_003E%2CB25034_001E%2CB25034_008E%2CB25034_009E%2CB25034_010E%2CB25034_011E%2CB09001_003E%2CB09001_001E%2CB14001_002E%2CC16002_001E%2CC16002_002E%2CC16002_004E%2CC16002_007E%2CC16002_010E%2CC16002_013E&for=county+subdivision%3A%2A&in=state%3A36+county%3A071&key=<KEY>",
+    "status": 200,
+    "ok": true,
+    "retrieved": "2026-10-08T21:42:06+00:00",
+    "raw_file": "raw/acs5_towns.json"
+  }
+]
