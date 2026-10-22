@@ -4,6 +4,7 @@ Summarize here; put full detail in the files named in each section.
 
 ## Section 1. Frame (Steps 1 and 2)
 1.1 The one decision the client must make (copy from `evidence/decision-frame.md`):
+The client must decide whether to open a pet-care business in Warwick or Monroe town.
 
 1.2 Which success rule did you add or tighten, and why?
 

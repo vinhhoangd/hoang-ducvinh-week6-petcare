@@ -13,7 +13,7 @@ Fill this in **before** you ask any AI agent to do analysis. Write in your own w
 
 *One sentence. It must end in one of four actions: proceed, pilot, investigate further, or do not proceed.*
 
-> The client must decide whether to ...
+> The client must decide whether to open a pet-care business in Warwick or Monroe town.
 
 ## Success criteria (write these BEFORE using AI)
 
