@@ -29,7 +29,7 @@ _Everyone, before anything else. Keys and logins are typed by each person, never
 - [ ] **[V]** Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why — Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.
 - [ ] **[T]** Write down which agent each of you uses (agy, Codex, or Claude Code) — team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md
 - [ ] **[V]** Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
-- [ ] **[T]** Confirm your team number with the instructor — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
+- [ ] **[T]** Team number: Team 3 (Canvas group list) — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
 
 ### Step 1: Frame the decision
 _Before any AI analysis. File: evidence/decision-frame.md_
