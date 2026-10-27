@@ -23,14 +23,24 @@ In `project-workspace/.env`, one line `CENSUS_API=…`, typed by Vinh in `nano`.
 ## Section 3. Plan review (Step 3)
 3.1 What did the agent plan for (a) the script, (b) the research skill, (c) the model?
 
+(a) `pull_data.py`: read the key from `CENSUS_API` only, download ACS 2023 tracts (92) and towns with margins of error, CBP 2022 for 812910 and 541940, and FRED CUSR0000SS61031. Save raw files unchanged, write clean tables and `api-manifest.md` with the key replaced by `<KEY>`, and stop if tracts ≠ 92 or the key appears in any output. (b) `SKILL.md`: check the NotebookLM login (a human logs in), create "Pet-care - Warwick town vs Monroe town", add 4 public primary sources with `nlm source add`, ask 5+ questions with `nlm notebook query`, record citations, add claims to the ledger as unconfirmed, never delete. (c) `fit_models.py`: predict tract median income with an unpruned tree, a depth-3 tree and a random forest on a 25% held-out split (seed 42), leaving out the income MOE and IDs. Print train/held-out R² and MAE, feature importance, Warwick/Monroe out-of-sample residuals, and the leakage test.
+
 3.2 What did you reject or revise, and why? (Detail goes in `ai-use-log.md`.)
 
+Rejected the first version of the script plan because it was unclear and hard to follow; I could not have explained it at the demo. The agent rewrote it as 6 plain steps with a table of the 5 downloads, and I accepted that. Accepted the skill plan on one condition: the exact `nlm skill install` option for Claude Code must be checked and shown to us before it runs. *(The credential-refusal test is recorded in the AI-use log.)*
+
 3.3 Did the plan use a held-out test set? If not, what did you change?
+
+Yes: 25% of tracts are set aside with a fixed seed (42) before training, and the models never see them. Nothing needed changing.
 
 ## Section 4. API script (Step 4)
 4.1 Prediction: how many tract rows will the ACS request return?  Observed:
 
+Prediction (Vinh, 2026-10-27 14:52, before running): **92** tract rows. Observed: **92** rows, HTTP 200 (run 2026-10-27, `api-manifest.md`); the clean table matches `sample-data/orange_tracts_clean.csv` value for value.
+
 4.2 Name two columns in your clean table and say whether each is a count, a percent, or a dollar amount, and whether it has a margin of error.
+
+`median_income` is a **dollar amount** (2023 inflation-adjusted) and **has a margin of error** (`median_income_moe`, e.g. Warwick town $117,680 ± $8,605). `pct_renter` is a **percent** we compute from two ACS counts (renter-occupied ÷ occupied homes × 100); its MOE was not downloaded, so it carries uncertainty we do not show. CBP `establishments` is a plain **count** of businesses with employees, with no margin of error.
 
 ## Section 5. Research skill (Step 5)
 5.1 Which of the five cited answers did you mark "not confirmed", and what did the cited passage actually say?

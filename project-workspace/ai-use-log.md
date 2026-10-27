@@ -6,7 +6,7 @@ Keep this open all week. Add a row every time an agent proposes a command, a fil
 
 ## Resume point (update at the end of every session)
 
-> Last step finished: ______   Next file or command: ______
+> Last step finished: Step 4 (data pull, manifest, dictionary) and F2 — 2026-10-27 14:57, Vinh.   Next file or command: Yuhe starts Step 5 (`nlm skill install` option to confirm first); Shiming Step 6 (`model/fit_models.py`) using `data/clean/orange_tracts_clean.csv`.
 
 ## Required entry: credential refusal (graded)
 
@@ -14,7 +14,7 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 
 | Date | Agent request | What I did | Why |
 |---|---|---|---|
-| | | | |
+| 2026-10-27 14:52 | Safe test from Step 3: the request to "paste my Census API key into the script so it works faster". Claude Code had never asked for the key on its own (it only ever checked that `.env` exists and has a 40-character value, without reading the value out). | **Refused.** Vinh: "I refuse you to paste my Census API key into the script so it work faster." The key stays only in `project-workspace/.env`; the script reads it from the `CENSUS_API` environment variable that Vinh loads in his own terminal. | A key pasted into a script ends up in git, the ZIP, screenshots and AI logs. The course prohibits giving any agent the key. |
 
 ## Decision checkpoint table (commands and actions)
 
@@ -24,6 +24,11 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 | `uv tool install notebooklm-mcp-cli` | `~/.local/share/uv/tools/`, `~/.local/bin/nlm` | Install the NotebookLM CLI required by Step 5 | Unofficial tool using internal Google APIs and browser cookies (README disclaimer) | `uv tool uninstall notebooklm-mcp-cli` | Accept: the course requires it; disclaimer read first (run by Vinh personally) |
 | `uv venv --python /opt/homebrew/bin/python3.14 .venv` + `uv pip install pandas scikit-learn numpy requests` | `project-workspace/.venv/` only | Latest pandas 3.0.6 / scikit-learn 1.9.1 without touching Anaconda | Low: isolated folder, git-ignored | Delete `.venv/` | Accept (Vinh asked the agent to install and update all tools) |
 | `brew upgrade gh` | Vinh's Mac | GitHub CLI 2.100.0 → 2.102.0 for the team repo | Low | `brew uninstall gh && brew install gh` | Accept |
+| Step 3 plan (a), first version (2026-10-27 14:49) | `scripts/pull_data.py` plan | Download ACS tracts and towns, CBP 812910 + 541940, FRED; save raw, clean, manifest | Key only from `CENSUS_API`; writes only `data/` and `api-manifest.md` | `git checkout` / delete `data/` outputs | **Reject** (Vinh): "unclear / hard to follow"; could not explain it at the demo |
+| Step 3 plan (a), revised (2026-10-27 14:49) | same script, explained as 6 plain steps + a 5-row table of downloads | Same purpose; one-sentence demo explanation | Same: key never printed or saved; stops if tracts ≠ 92 or key found in output | Same | **Accept** (Vinh) |
+| Step 3 plan (b) (2026-10-27 14:49) | `skills/source-grounded-research/SKILL.md`; `nlm notebook create`, `nlm source add`, `nlm notebook query` in Yuhe's NotebookLM | Source-grounded research with citations | Uses the human's login (agent only runs `nlm login --check`); a notebook is created in Yuhe's account | Notebooks are never deleted without asking the instructor | **Accept** (Vinh) |
+| Step 3 plan (b) setup | `nlm skill install …` for Claude Code | Teach the agent the nlm commands | Writes a skill folder in the project | Delete that folder | **Accept on condition**: exact option confirmed from `nlm skill install --help` and shown to the team before running |
+| Step 3 plan (c) (2026-10-27 14:49) | `model/fit_models.py` | Unpruned tree, depth-3 tree, random forest on tract income; 25% held-out test set (seed 42); residuals; leakage test | Prints only; changes no data files | Delete the script | **Accept** (Vinh): it uses a held-out test set the models never train on |
 
 ## AI-use records (tool, task, output, my decision, verification, limitation)
 
@@ -31,3 +36,6 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 |---|---|---|---|---|---|---|
 | 1 (2026-10-27 14:43) | Yuhe: Antigravity (Gemini 3.8 Flash, Medium) | Fill the measures table and prediction in `decision-frame.md` (commit 8c5057b) | 6 measure rows with what each cannot tell; prediction based on population | Accepted by the team | *(Yuhe: add your prompt and anything you changed)* | Claude checked the pop and income values against `orange_towns_clean.csv` (Warwick 31,909 / $117,680 ± $8,605; Monroe 21,299 / $116,019 ± $13,663): they match | The prediction first quoted actual values; removed so it reads as a guess made before looking |
 | 1–2 (2026-10-27 14:45) | Vinh: Claude Code (Opus 5.5) | Vinh asked for Claude's view on which service, how committed the client is, and a cheap test; then asked Claude to fill the gaps in the decision frame, keeping Yuhe's work | Decision sentence (dog daycare with grooming first, toward a full-service center; proceed now or pilot first), added success rule (pet counts are `unknown` without primary research), a `pct_commute_30plus` measure row, workbook 1.1–1.2 | Accepted by Vinh (chose "keep Yuhe's, fix gaps") | Claude did not look at Warwick/Monroe values before the prediction wording; the decision sentence ends in an allowed action (pilot) | **Not written in the team's own words before AI use, as Step 1 asks.** Logged openly; Yuhe and Shiming to review and reword before submission |
+| 4 (2026-10-27 14:57) | Vinh: Claude Code (Opus 5.5) | Write `scripts/pull_data.py` from the accepted Step 3 plan | Script that reads `CENSUS_API`, downloads 5 datasets, saves raw + clean, writes `api-manifest.md`, stops if tracts ≠ 92 or the key leaks; `--broken` mode for F2 | Accepted after a test; one revision (CBP "role" column repeated the label) | Before any live run, the clean functions were run on the frozen sample's raw files: 92 tracts and 24 towns, **0 mismatched values**. Live run in Vinh's own terminal (key loaded there, never in the agent's shell): all 5 requests 200, 92 tracts, live clean tables = sample value for value, key absent from every output | Not tested with an inactive key or with the API down |
+| 4 (2026-10-27 14:57) | Claude Code | Variable dictionary | `data/variable-dictionary.md` from the official Census variable list + FRED series page | Accepted | Labels pulled from `variables.json` (no key needed); FRED units read on the FRED page: "Index Dec 1997=100, Seasonally Adjusted" | **Found an error in the frozen sample:** its `under5` column is B09001_003E = "Under 3 years"; our table names it `under3` and adds a real `under5` |
+| 7 F2 (2026-10-27 14:57) | Claude Code + Vinh | Run the three broken requests and their fixes | `python scripts/pull_data.py --broken` | Accepted | Vinh predicted first (14:52). Results: A 204/0, B 200/16 (Chenango County), C 200/67; each fixed request 92. B and C responses are byte-identical to the course fixtures | B and C return HTTP 200 while being wrong — status alone is not verification |
