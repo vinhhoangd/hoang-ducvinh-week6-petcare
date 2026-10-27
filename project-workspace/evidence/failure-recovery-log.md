@@ -10,7 +10,3 @@ For each failure: write the prediction FIRST, then run, then record. Keep the br
 | F2c | `broken-requests` C (year 2009) | Rows expected (Vinh, 2026-10-27 14:52): **fewer than 92** — the 2009 survey used older tract boundaries | `data/raw/broken/C-old-vintage-2009.response.txt` (5,076 bytes, same as the course fixture) | **HTTP 200, 67 rows** — matches the prediction; again a 200 that is wrong | Wrong vintage: ACS 2009 uses the 2000-census tracts (67 in Orange County); the project uses ACS 2023 | Changed `/data/2009/` → `/data/2023/` | **92 rows** (`C-old-vintage-2009-fixed.response.txt`) |
 | F3 | Leakage table | Held-out R2 predicted: | | | Which column leaks: | Column removed: | Held-out R2 after: |
 | F4 | MOE pair | Town I expect to rank first: | `sample-data/moe_pair.csv` | Ranges overlap? | | Claim downgraded to: | |
-
-## Example row (delete this section before submitting)
-
-F2a, example wording: "Predicted 92 rows; got HTTP 204 and zero rows. Diagnosis: county code `71` must be the three-digit string `071`. Repair: changed the parameter and reran; 92 rows, matches the manifest."
