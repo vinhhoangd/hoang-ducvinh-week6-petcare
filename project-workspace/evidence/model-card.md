@@ -5,35 +5,33 @@ A model card is a one-page honest description of a model: what it predicts, what
 ## 1. What the model predicts
 
 - Target (the thing predicted): *Tract median household income (`median_income`) unless your instructor says otherwise.*
-- Rows: all Orange County NY tracts with a non-missing target. Number of rows used:
-- Features used (list the column names):
-- Features you deliberately left out, and why (at least one):
-- Training/held-out split (what fraction, what random seed):
+- Rows: 92 Orange County NY tracts in the input; 91 used after dropping the one tract with missing `median_income`.
+- Features used (list the column names): `pop`, `median_age`, `pct_under18`, `pct_renter`, `pct_commute_30plus`, `pct_built_pre1970`, `pct_bachelors_plus`.
+- Features deliberately left out: `geoid` is an identifier and `town` is a label, not a numeric predictor; `median_income_moe` describes uncertainty in the target and could leak target-related information; `median_rent` and `median_rent_moe` contain missing values, so they were excluded rather than imputed. The seven selected features have no missing values among the 91 rows used.
+- Training/held-out split: 75%/25%, 68 training tracts and 23 held-out tracts, `random_state=42`.
 
 ## 2. Results table
 
 | Model | Train R2 | Held-out R2 | Held-out average error in dollars (MAE) | Where I got it |
 |---|---|---|---|---|
-| Example only (delete): decision tree, no depth limit | 1.00 | 0.1 | 25,000 | cell 7 |
-| Decision tree, no depth limit | | | | |
-| Decision tree, depth limited to 3 | | | | |
-| Random forest | | | | |
+| Decision tree, no depth limit | 1.000 | 0.260 | $18,041 | `cd project-workspace && .venv/bin/python model/fit_models.py` |
+| Decision tree, depth limited to 3 | 0.866 | 0.172 | $20,463 | `cd project-workspace && .venv/bin/python model/fit_models.py` |
+| Random forest (500 trees) | 0.954 | 0.552 | $16,581 | `cd project-workspace && .venv/bin/python model/fit_models.py` |
 
 *R2 near 1.0 means the model reproduces the answer; near 0 means it is no better than guessing the average. A huge gap between Train R2 and Held-out R2 means the model memorized.*
 
 ## 3. Required study: how does a tree work and why is a forest steadier?
 
-Before you read the results, ask your agent three questions and paste the answers you decided to keep (shortened to your own words):
+1. How does a decision tree decide where to split? A regression tree tests feature-and-threshold splits and chooses one that reduces squared prediction error within the resulting groups; it repeats this process, and each leaf predicts its training targets' average.
+2. How is a random forest different from one tree? It fits many trees using randomized bootstrap samples and feature choices, then averages their predictions.
+3. Why is a forest usually more stable than one tree? Averaging trees that make different errors reduces variance, so the prediction is less dependent on one tree's particular splits.
 
-1. How does a decision tree decide where to split?
-2. How is a random forest different from one tree?
-3. Why is a forest usually more stable than one tree?
+A decision tree splits the tracts into smaller groups by choosing a feature and cutoff that reduce prediction errors. Each final group predicts income using the average income of the tracts in that group. A random forest builds many trees using different samples and feature choices, then averages their predictions. Because the trees may make different mistakes, averaging can make the forest less sensitive to one tree’s splits. In this run, the forest had a smaller train-to-test R² gap and a higher held-out R² than the unpruned tree, although the test set was small.
 
-> Your summary in your own words (3 to 5 sentences):
 
 Now check the claim on your data. Fill this in using your table above:
 
-> The tree's gap between train and held-out R2 was ______. The forest's gap was ______. This (does / does not) match the idea that a forest is steadier, because ______.
+> Using train R2 minus held-out R2, the unpruned tree's gap was 0.740 and the forest's gap was 0.402. This matches the idea that the forest is steadier on this split: its gap was smaller and its held-out R2 (0.552) was higher than the unpruned tree's (0.260). This is one small held-out sample, not proof the forest will always perform better.
 
 ## 4. Feature importance
 
@@ -41,9 +39,9 @@ Now check the claim on your data. Fill this in using your table above:
 
 | Rank | Feature | Importance | What it could mean | What it does NOT prove |
 |---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | `pct_renter` | 0.445 | Tracts with different renter shares may also differ in household income and housing context. | Renting causes income differences, or renters own more or fewer pets. |
+| 2 | `pct_bachelors_plus` | 0.239 | Educational attainment may be associated with the income patterns captured by this model. | Education causes income or predicts an individual's income or pet-care spending. |
+| 3 | `pct_commute_30plus` | 0.122 | Long commutes may co-vary with tract income or work patterns. | Commuters need dog daycare, own pets, or will buy this service. |
 
 ## 5. Your town versus the rest of the county
 
@@ -51,12 +49,14 @@ Now check the claim on your data. Fill this in using your table above:
 
 | Town | Number of tracts | Mean actual income | Mean residual | Reading |
 |---|---|---|---|---|
-| | | | | |
-| | | | | |
+| Warwick town | 8 | $118,956 | +$738 | Its tract mean is close to the out-of-fold predictions on average; this is not evidence of local pet-care demand. |
+| Monroe town | 5 | $104,575 | -$9,179 | Its tracts averaged below their out-of-fold predictions; the small count makes this estimate uncertain. |
 
 Why a town with 3 to 8 tracts is a weak sample, in one sentence:
 
-> 
+> A few tracts provide little information about variation within a town, so one unusual tract can move the town average and residual substantially.
+
+Residual method: each tract was predicted by a 500-tree random forest in shuffled five-fold cross-validation (`random_state=42`); its own target was excluded from the fold used to fit its predictor. Residual is actual minus out-of-fold predicted income.
 
 ## 6. Leakage check (Failure F3)
 
@@ -68,7 +68,7 @@ Why a town with 3 to 8 tracts is a weak sample, in one sentence:
 
 ## 7. Limits (required)
 
-- Sample size:
-- Time period of the data:
-- Variables not in the model that matter:
-- One decision the model should NOT be used for:
+- Sample size: 91 tracts with a reported target (92 input rows; one target missing), with only 23 in the held-out test set. Warwick has 8 modeled tracts and Monroe has 5.
+- Time period of the data: 2023 ACS 5-year estimates; these summarize a multi-year survey period and are not a real-time measure.
+- Variables not in the model that matter: pet ownership, local willingness to pay, customer demand, pet-friendly rental rules, competitor capacity/pricing, and business operating costs.
+- One decision the model should NOT be used for: it should not decide by itself whether to invest in or open a pet-care business in either town.

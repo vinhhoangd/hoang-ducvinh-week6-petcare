@@ -103,20 +103,21 @@ _Owner: Yuhe. Files: skills/source-grounded-research/SKILL.md, evidence/notebook
 ### Step 6: Tree and forest models
 _Owner: Shiming. Files: model/fit_models.py, evidence/model-card.md_
 
-- [ ] **[S]** Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — model-card.md Section 3
-- [ ] **[S]** Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running
-- [ ] **[S]** Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target)
-- [ ] **[S]** Script splits into training and held-out test sets (record fraction and random seed)
-- [ ] **[S]** Script fits an unpruned tree, a depth-3 tree, and a random forest
-- [ ] **[S]** Script prints train R², held-out R², and held-out average dollar error (MAE) for each
-- [ ] **[S]** Model card Section 1: target, rows used, features, at least one feature left out and why, split
-- [ ] **[S]** Model card Section 2 results table with 'Where I got it' for every number; delete the example row
-- [ ] **[S]** Sanity check: unpruned ≈ 1.0 on train but near 0 held-out, forest clearly better held-out. If not, trace the bug; don't smooth it over
-- [ ] **[S]** Model card Section 3 gap sentence (tree gap vs forest gap, does it match?)
-- [ ] **[S]** Model card Section 4: forest top-3 feature importance, what each could mean, what it does NOT prove (importance ≠ cause)
-- [ ] **[S]** Model card Section 5: Warwick and Monroe out-of-sample residuals (tracts, mean actual, mean residual, reading) + why 3–8 tracts is a weak sample
-- [ ] **[S]** Model card Section 7 limits: sample size, time period, missing variables, one decision the model must NOT be used for
-- [ ] **[S]** Workbook 6.2 (observed + surprise) and 6.3 (why a forest can beat one tree held-out)
+- [ ] **[S]** Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
+- [x] **[S]** Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running — AI-assisted estimate recorded before the model run; personalize if your own prediction differed
+- [x] **[S]** Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target) — script uses 91 tracts with non-missing target
+- [x] **[S]** Script splits into training and held-out test sets (record fraction and random seed) — 75/25, seed 42
+- [x] **[S]** Script fits an unpruned tree, a depth-3 tree, and a random forest
+- [x] **[S]** Script prints train R², held-out R², and held-out average dollar error (MAE) for each
+- [x] **[S]** Model card Section 1: target, rows used, features, at least one feature left out and why, split
+- [x] **[S]** Model card Section 2 results table with 'Where I got it' for every number; delete the example row
+- [x] **[S]** Sanity check: unpruned ≈ 1.0 on train but near 0 held-out, forest clearly better held-out. If not, trace the bug; don't smooth it over — full tree train R²=1.000 vs held-out 0.260; forest held-out R²=0.552 and MAE=$16,581
+- [x] **[S]** Model card Section 3 gap sentence (tree gap vs forest gap, does it match?)
+- [x] **[S]** Model card Section 4: forest top-3 feature importance, what each could mean, what it does NOT prove (importance ≠ cause)
+- [x] **[S]** Model card Section 5: Warwick and Monroe out-of-sample residuals (tracts, mean actual, mean residual, reading) + why 3–8 tracts is a weak sample
+- [x] **[S]** Model card Section 7 limits: sample size, time period, missing variables, one decision the model must NOT be used for
+- [x] **[S]** Workbook 6.2: observed results and surprise recorded as an AI-assisted draft
+- [ ] **[S]** Workbook 6.3: explain in your own words why a forest can beat one tree on held-out data; AI-assisted draft is entered and needs your rewrite
 
 ### Step 7: Break it: F1–F4
 _Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recovery-log.md_
@@ -309,20 +310,21 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 - [ ] Create .env with CENSUS_API=<your key> in your own copy, typed yourself
 
 **Step 6: Tree and forest models**
-- [ ] Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences)
-- [ ] Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running
-- [ ] Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target)
-- [ ] Script splits into training and held-out test sets (record fraction and random seed)
-- [ ] Script fits an unpruned tree, a depth-3 tree, and a random forest
-- [ ] Script prints train R², held-out R², and held-out average dollar error (MAE) for each
-- [ ] Model card Section 1: target, rows used, features, at least one feature left out and why, split
-- [ ] Model card Section 2 results table with 'Where I got it' for every number; delete the example row
-- [ ] Sanity check: unpruned ≈ 1.0 on train but near 0 held-out, forest clearly better held-out. If not, trace the bug; don't smooth it over
-- [ ] Model card Section 3 gap sentence (tree gap vs forest gap, does it match?)
-- [ ] Model card Section 4: forest top-3 feature importance, what each could mean, what it does NOT prove (importance ≠ cause)
-- [ ] Model card Section 5: Warwick and Monroe out-of-sample residuals (tracts, mean actual, mean residual, reading) + why 3–8 tracts is a weak sample
-- [ ] Model card Section 7 limits: sample size, time period, missing variables, one decision the model must NOT be used for
-- [ ] Workbook 6.2 (observed + surprise) and 6.3 (why a forest can beat one tree held-out)
+- [ ] Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
+- [x] Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running — AI-assisted pre-run estimate; personalize if different
+- [x] Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target) — 91 have non-missing targets
+- [x] Script splits into training and held-out test sets (record fraction and random seed) — 75/25, seed 42
+- [x] Script fits an unpruned tree, a depth-3 tree, and a random forest
+- [x] Script prints train R², held-out R², and held-out average dollar error (MAE) for each
+- [x] Model card Section 1: target, rows used, features, at least one feature left out and why, split
+- [x] Model card Section 2 results table with 'Where I got it' for every number; delete the example row
+- [x] Sanity check: unpruned ≈ 1.0 on train but near 0 held-out, forest clearly better held-out. If not, trace the bug; don't smooth it over — unpruned 1.000/0.260; forest held-out 0.552
+- [x] Model card Section 3 gap sentence (tree gap vs forest gap, does it match?)
+- [x] Model card Section 4: forest top-3 feature importance, what each could mean, what it does NOT prove (importance ≠ cause)
+- [x] Model card Section 5: Warwick and Monroe out-of-sample residuals (tracts, mean actual, mean residual, reading) + why 3–8 tracts is a weak sample
+- [x] Model card Section 7 limits: sample size, time period, missing variables, one decision the model must NOT be used for
+- [x] Workbook 6.2: observed results and surprise recorded as an AI-assisted draft
+- [ ] Workbook 6.3: explain in your own words why a forest can beat one tree on held-out data; AI-assisted draft is entered and needs your rewrite
 
 **Step 7: Break it: F1–F4**
 - [ ] F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv

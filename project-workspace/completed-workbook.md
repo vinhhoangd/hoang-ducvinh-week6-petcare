@@ -50,9 +50,15 @@ Prediction (Vinh, 2026-10-27 14:52, before running): **92** tract rows. Observed
 ## Section 6. Models (Step 6)
 6.1 Prediction before running: held-out R2 for the unpruned tree, depth-3 tree, forest.
 
+Pre-run estimate (AI-assisted draft, recorded before executing `fit_models.py`): unpruned tree **about 0.0**, depth-3 tree **about 0.15**, random forest **about 0.35**. Shiming should replace or annotate this with their own initial estimate if it differs.
+
 6.2 Observed (copy from model card). What surprised you?
 
+Observed from `cd project-workspace && .venv/bin/python model/fit_models.py`: unpruned tree **0.260**, depth-3 tree **0.172**, random forest **0.552** held-out R2. Their held-out MAEs were **$18,041**, **$20,463**, and **$16,581**, respectively. AI-assisted reflection draft: the forest performed best on this fixed split; the unpruned tree fit training data perfectly (R2 1.000) but did not generalize as well (0.260). The tree's held-out score was positive rather than near zero, so the sanity check should be read as a pattern of overfitting, not an exact expected score.
+
 6.3 In your own words: why can a forest look better on held-out data than one tree?
+
+A forest averages many trees built from different samples and feature choices. Their individual mistakes can partly cancel, making the average less sensitive to one tree's unusual split and often improving predictions on data the trees did not train on.
 
 ## Section 7. Break and verify (Steps 7 and 8)
 7.1 For F1 to F4, one sentence each: what you predicted, what happened, the repair. (Detail in `evidence/failure-recovery-log.md`.)
