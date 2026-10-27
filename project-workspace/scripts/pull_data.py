@@ -185,6 +185,12 @@ def write_manifest(rows, title, append=False):
     for r in rows:
         lines.append(f"| {r['name']} | `{r['url']}` | {r['status']} | {r['rows']} | {r['retrieved']} | `{r['raw_file']}` |")
     text = "\n".join(lines) + "\n\n"
+    if not append and MANIFEST.exists():
+        # A fresh Step 4 pull rewrites its own section but keeps the Step 7 F2 evidence.
+        old = MANIFEST.read_text()
+        i = old.find("## Step 7 F2")
+        if i != -1:
+            text += old[i:]
     with open(MANIFEST, "a" if append else "w") as f:
         f.write(text)
 
