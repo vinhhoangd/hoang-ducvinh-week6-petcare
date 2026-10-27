@@ -4,9 +4,12 @@ Summarize here; put full detail in the files named in each section.
 
 ## Section 1. Frame (Steps 1 and 2)
 1.1 The one decision the client must make (copy from `evidence/decision-frame.md`):
-The client must decide whether to open a pet-care business in Warwick or Monroe town.
+
+The client must decide whether to open a dog daycare with grooming, as the first step toward a full-service pet-care center, in Warwick town or Monroe town, and whether to proceed now or pilot it first.
 
 1.2 Which success rule did you add or tighten, and why?
+
+We added: any claim about how many households own pets, or how much they spend on pet care, is `unknown` unless it comes from our own primary research. Why: no public dataset in this project counts pets, and the seeded AI brief (C1) invents a pet-owner count.
 
 ## Section 2. Tool check (Step 0)
 2.1 Which agent do you use, and which tool was missing at first? How did you fix it?
