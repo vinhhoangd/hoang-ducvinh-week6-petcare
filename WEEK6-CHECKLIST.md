@@ -85,20 +85,20 @@ _Owner: Vinh. Files: scripts/pull_data.py, data/, api-manifest.md, data/variable
 _Owner: Yuhe. Files: skills/source-grounded-research/SKILL.md, evidence/notebooklm-transcript.md_
 
 - [x] **[Y]** Install the NotebookLM skill for your agent from inside project-workspace/ — nlm skill install agents --level project for agy/Codex (Claude Code has its own target in nlm). If asked 'Overwrite? [y/N]', answer n.
-- [ ] **[Y]** Agent drafts skills/source-grounded-research/SKILL.md; read it before use
-- [ ] **[Y]** SKILL.md: never handles credentials; adds only public primary sources
-- [ ] **[Y]** SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town' — Format <Case> - <Town A> vs <Town B>
-- [ ] **[Y]** SKILL.md: adds sources with nlm source add; asks with nlm notebook query (never the interactive chat)
-- [ ] **[Y]** SKILL.md: appends a claim-ledger row for every claim it uses
-- [ ] **[Y]** Add source 1: Census ACS page for tract data
-- [ ] **[Y]** Add source 2: CBP About page
-- [ ] **[Y]** Add source 3: FRED page for CUSR0000SS61031
-- [ ] **[Y]** Add source 4: your frozen orange_towns_clean.csv
-- [ ] **[Y]** Ask at least 5 cited questions with nlm notebook query — e.g. what CBP counts and does not count; is the FRED series dollars or an index; which town has the larger margin of error; can ACS count pet-owning households; what NAICS 812910 vs 541940 cover
-- [ ] **[Y]** Open every cited passage yourself and mark it confirmed / not confirmed. No citation, no claim.
-- [ ] **[Y]** Fill notebooklm-transcript.md: notebook name, sources table (title, URL/file, why primary), questions table (command, question, answer, quoted passage, confirmed?, ledger row) — Delete the example row. Ignore unsolicited follow-up questions the tool adds.
-- [ ] **[Y]** Never delete a NotebookLM notebook or source without asking the instructor
-- [ ] **[Y]** Workbook 5.1 (which answer was 'not confirmed' and what the passage really said) and 5.2 (what the answers depend on, possible bias)
+- [x] **[Y]** Agent drafts skills/source-grounded-research/SKILL.md; read it before use
+- [x] **[Y]** SKILL.md: never handles credentials; adds only public primary sources
+- [x] **[Y]** SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town' — Format <Case> - <Town A> vs <Town B>
+- [x] **[Y]** SKILL.md: adds sources with nlm source add; asks with nlm notebook query (never the interactive chat)
+- [x] **[Y]** SKILL.md: appends a claim-ledger row for every claim it uses
+- [x] **[Y]** Add source 1: Census ACS page for tract data
+- [x] **[Y]** Add source 2: CBP About page
+- [x] **[Y]** Add source 3: FRED page for CUSR0000SS61031
+- [x] **[Y]** Add source 4: your frozen orange_towns_clean.csv
+- [x] **[Y]** Ask at least 5 cited questions with nlm notebook query — e.g. what CBP counts and does not count; is the FRED series dollars or an index; which town has the larger margin of error; can ACS count pet-owning households; what NAICS 812910 vs 541940 cover
+- [x] **[Y]** Open every cited passage yourself and mark it confirmed / not confirmed. No citation, no claim.
+- [x] **[Y]** Fill notebooklm-transcript.md: notebook name, sources table (title, URL/file, why primary), questions table (command, question, answer, quoted passage, confirmed?, ledger row) — Delete the example row. Ignore unsolicited follow-up questions the tool adds.
+- [x] **[Y]** Never delete a NotebookLM notebook or source without asking the instructor
+- [x] **[Y]** Workbook 5.1 (which answer was 'not confirmed' and what the passage really said) and 5.2 (what the answers depend on, possible bias)
 
 ### Step 6: Tree and forest models
 _Owner: Shiming. Files: model/fit_models.py, evidence/model-card.md_
@@ -122,18 +122,18 @@ _Owner: Shiming. Files: model/fit_models.py, evidence/model-card.md_
 ### Step 7: Break it: F1–F4
 _Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recovery-log.md_
 
-- [ ] **[Y]** F1 prediction first: which claims C1–C6 in seeded-ai-briefs/case4-pet-care-ai-brief.md you expect to fail
-- [ ] **[Y]** F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows — Check each for wrong place, an index read as a percent, establishments called competitors, income read as demand, and overlapping margins of error
-- [ ] **[Y]** F1: write the corrected brief (new file) and check every corrected claim traces back to raw data
-- [ ] **[Y]** Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot
+- [x] **[Y]** F1 prediction first: which claims C1–C6 in seeded-ai-briefs/case4-pet-care-ai-brief.md you expect to fail
+- [x] **[Y]** F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows — Check each for wrong place, an index read as a percent, establishments called competitors, income read as demand, and overlapping margins of error
+- [x] **[Y]** F1: write the corrected brief (new file) and check every corrected claim traces back to raw data
+- [x] **[Y]** Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot
 - [x] **[V]** F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009) — sample-data/broken-requests/README.md
 - [x] **[V]** F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response — Script or curl
 - [x] **[V]** F2: name the parameter you fixed for each, rerun: 92 rows each
 - [ ] **[S]** F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
 - [ ] **[S]** F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after — Also model-card Section 6, including why that high a score should have looked suspicious
-- [ ] **[Y]** F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
-- [ ] **[Y]** F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown
-- [ ] **[Y]** Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section
+- [x] **[Y]** F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
+- [x] **[Y]** F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown
+- [x] **[Y]** Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section
 - [ ] **[T]** Workbook 7.1: one sentence each for F1–F4 (prediction, what happened, repair)
 
 ### Step 8: Verify every claim
@@ -268,29 +268,29 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 
 **Step 5: Research skill + NotebookLM**
 - [x] Install the NotebookLM skill for your agent from inside project-workspace/
-- [ ] Agent drafts skills/source-grounded-research/SKILL.md; read it before use
-- [ ] SKILL.md: never handles credentials; adds only public primary sources
-- [ ] SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town'
-- [ ] SKILL.md: adds sources with nlm source add; asks with nlm notebook query (never the interactive chat)
-- [ ] SKILL.md: appends a claim-ledger row for every claim it uses
-- [ ] Add source 1: Census ACS page for tract data
-- [ ] Add source 2: CBP About page
-- [ ] Add source 3: FRED page for CUSR0000SS61031
-- [ ] Add source 4: your frozen orange_towns_clean.csv
-- [ ] Ask at least 5 cited questions with nlm notebook query
-- [ ] Open every cited passage yourself and mark it confirmed / not confirmed. No citation, no claim.
-- [ ] Fill notebooklm-transcript.md: notebook name, sources table (title, URL/file, why primary), questions table (command, question, answer, quoted passage, confirmed?, ledger row)
-- [ ] Never delete a NotebookLM notebook or source without asking the instructor
-- [ ] Workbook 5.1 (which answer was 'not confirmed' and what the passage really said) and 5.2 (what the answers depend on, possible bias)
+- [x] Agent drafts skills/source-grounded-research/SKILL.md; read it before use
+- [x] SKILL.md: never handles credentials; adds only public primary sources
+- [x] SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town'
+- [x] SKILL.md: adds sources with nlm source add; asks with nlm notebook query (never the interactive chat)
+- [x] SKILL.md: appends a claim-ledger row for every claim it uses
+- [x] Add source 1: Census ACS page for tract data
+- [x] Add source 2: CBP About page
+- [x] Add source 3: FRED page for CUSR0000SS61031
+- [x] Add source 4: your frozen orange_towns_clean.csv
+- [x] Ask at least 5 cited questions with nlm notebook query
+- [x] Open every cited passage yourself and mark it confirmed / not confirmed. No citation, no claim.
+- [x] Fill notebooklm-transcript.md: notebook name, sources table (title, URL/file, why primary), questions table (command, question, answer, quoted passage, confirmed?, ledger row)
+- [x] Never delete a NotebookLM notebook or source without asking the instructor
+- [x] Workbook 5.1 (which answer was 'not confirmed' and what the passage really said) and 5.2 (what the answers depend on, possible bias)
 
 **Step 7: Break it: F1–F4**
-- [ ] F1 prediction first: which claims C1–C6 in seeded-ai-briefs/case4-pet-care-ai-brief.md you expect to fail
-- [ ] F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows
-- [ ] F1: write the corrected brief (new file) and check every corrected claim traces back to raw data
-- [ ] Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot
-- [ ] F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
-- [ ] F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown
-- [ ] Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section
+- [x] F1 prediction first: which claims C1–C6 in seeded-ai-briefs/case4-pet-care-ai-brief.md you expect to fail
+- [x] F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows
+- [x] F1: write the corrected brief (new file) and check every corrected claim traces back to raw data
+- [x] Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot
+- [x] F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
+- [x] F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown
+- [x] Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section
 
 **Step 10: Brief, README, logs, workbook**
 - [ ] team-contributions.md: Yuhe's files, ledger rows verified, one thing the AI got wrong
