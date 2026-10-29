@@ -3,9 +3,9 @@
 - Team number and members: **Team 3** — Vinh Hoang (Duc Vinh Hoang), Yuhe Luo, Shiming Wan. Source: the "Group Members" list in the Canvas assignment "Group Project: Live Bilingual Classroom Translation Application" (Group 3); Week 6 keeps the Weeks 4–5 team.
 - Case claimed (1 to 5): **4, Pet-care business** (Warwick town vs Monroe town). Posted by Yuhe Luo in the Canvas "Week 6 team discussion", Oct 20, 2026, 2:48 PM.
 - Agent each of us uses (agy or Codex):
-Yuhe - Antigravity, Gemini 3.8 Flash (Medium)
-Vinh - Claude Code (Opus 5.5)
-Shiming - ___
+- Yuhe: Antigravity, Gemini 3.8 Flash (Medium)
+- Shiming:
+- Vinh: Claude Code, Opus 5.5 (High)
 
 
 ## Roles (everyone must be able to explain all three parts)

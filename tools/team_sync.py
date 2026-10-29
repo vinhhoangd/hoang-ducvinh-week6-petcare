@@ -181,7 +181,10 @@ def cmd_sync(a):
     in_page = set(page_ticks)
     # First run (no state yet): nothing counts as an untick, so ticks from both sides are combined.
     last = set(json.loads(STATE.read_text())["done"]) if STATE.exists() else in_page & in_md
-    unticked = (last - in_page) | (last - in_md if mapping else set())
+    # Only items that have a matching line in the file can be unticked from the file side;
+    # an item whose line a person reworded or split must not count as unticked.
+    md_ids = set(mapping.values())
+    unticked = (last - in_page) | ((last & md_ids) - in_md)
     unticked -= (in_page - last) | (in_md - last)          # a fresh tick on one side wins over a stale untick
     done = ((in_page | in_md) - unticked) & {i["id"] for i in DATA["items"]}
 
