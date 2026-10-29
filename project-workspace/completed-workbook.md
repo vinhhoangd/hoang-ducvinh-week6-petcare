@@ -78,13 +78,13 @@ A forest averages many trees built from different samples and feature choices. T
 
 7.2 How many ledger claims ended as supported / proxy / unsupported / refuted?
 
-Across the 11 audited claims in `evidence/claim-ledger.csv` (notebook research claims L1–L5 and seeded brief claims C1–C6):
-- **Supported:** 3 claims (L1, L4, C6)
-- **Proxy:** 2 claims (C4, C5)
-- **Unsupported:** 2 claims (L3, C3)
-- **Refuted:** 4 claims (L2, L5, C1, C2)
+After Step 8 verification (2026-10-29 15:17, Vinh), across the 11 claims in `evidence/claim-ledger.csv` (L1–L5 from NotebookLM, C1–C6 from the seeded brief):
+- **Supported:** 5 (L1, L2, L3, L4, C6)
+- **Proxy:** 2 (C4, C5)
+- **Unsupported:** 2 (L5, C3)
+- **Refuted:** 2 (C1, C2)
 
-Total: 11 claims ledgered, verified against primary data, and preserved with zero deleted rows.
+Step 8 changed three statuses after opening the sources: **L2** refuted → supported and **L3** unsupported → supported (both claims are true descriptions of their sources: FRED's page says "Index Dec 1997=100 … U.S. City Average"; none of the 28,299 ACS 2023 variables counts pets), and **L5** refuted → unsupported (the CBP About page simply does not define 812910 or 541940; nothing shows the claim is false). No rows were deleted.
 
 ## Section 8. Transfer and reflection (Steps 9 and 10)
 8.1 First confusing instruction found in the transfer trial, and your fix:

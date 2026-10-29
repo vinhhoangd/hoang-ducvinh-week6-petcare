@@ -25,7 +25,7 @@ The client is deciding whether to open a dog daycare with grooming in **Warwick 
 
 * **C4 (Corrected — Housing Tenure: Proxy):**  
   *Original claim:* "19.38% of Warwick town households are renters (apartment residents), so they are more likely to buy grooming."  
-  *Audit & Correction:* **Proxy.** ACS 2019–2023 (`sample-data/orange_towns_clean.csv`) confirms that renter-occupied housing units account for **19.38%** (2,369 of 12,224 occupied units) in Warwick town and **19.01%** in Monroe town. However, concluding that renters are "more likely to buy grooming" is an unverified behavioral assumption; renters frequently face property pet restrictions and may spend less on luxury pet care (`evidence/claim-ledger.csv`, row C4).
+  *Audit & Correction:* **Proxy.** ACS 2019–2023 (`sample-data/orange_towns_clean.csv`) confirms that renter-occupied housing units account for **19.38%** (2,276 of 11,743 occupied units, `data/raw/acs5_towns.json` B25003_003E / B25003_001E) in Warwick town and **19.01%** in Monroe town. However, concluding that renters are "more likely to buy grooming" is an unverified behavioral assumption; renters frequently face property pet restrictions and may spend less on luxury pet care (`evidence/claim-ledger.csv`, row C4).
 
 * **C5 (Corrected — Inflation Benchmark: Proxy):**  
   *Original claim:* "The pet food and treats CPI moved from 191.485 to 194.485 (1.57%) over twelve months."  
