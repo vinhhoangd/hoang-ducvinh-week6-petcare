@@ -139,13 +139,13 @@ _Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recov
 ### Step 8: Verify every claim
 _Owner: Vinh. File: evidence/claim-ledger.csv_
 
-- [ ] **[V]** For every ledger row: trace the value to a raw file in data/raw/ and recompute it
-- [ ] **[V]** For every ledger row: open the citation
-- [ ] **[V]** For every ledger row: confirm geography (state, county, town), vintage (year), units (dollars / percent / index)
-- [ ] **[V]** Update each status honestly; ledger has at least one refuted and one proxy row
-- [ ] **[V]** Delete example rows EX1 and EX2 from claim-ledger.csv
-- [ ] **[V]** Re-run pull_data.py from a fresh terminal and confirm the manifest still matches
-- [ ] **[T]** Workbook 7.2: count of supported / proxy / unsupported / refuted claims
+- [x] **[V]** For every ledger row: trace the value to a raw file in data/raw/ and recompute it
+- [x] **[V]** For every ledger row: open the citation
+- [x] **[V]** For every ledger row: confirm geography (state, county, town), vintage (year), units (dollars / percent / index)
+- [x] **[V]** Update each status honestly; ledger has at least one refuted and one proxy row
+- [x] **[V]** Delete example rows EX1 and EX2 from claim-ledger.csv
+- [x] **[V]** Re-run pull_data.py from a fresh terminal and confirm the manifest still matches
+- [x] **[T]** Workbook 7.2: count of supported / proxy / unsupported / refuted claims
 
 ### Step 9: Transfer trial
 _Run by someone who did NOT write the script. File: evidence/transfer-trial.md_
@@ -238,12 +238,12 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 - [x] F2: name the parameter you fixed for each, rerun: 92 rows each
 
 **Step 8: Verify every claim**
-- [ ] For every ledger row: trace the value to a raw file in data/raw/ and recompute it
-- [ ] For every ledger row: open the citation
-- [ ] For every ledger row: confirm geography (state, county, town), vintage (year), units (dollars / percent / index)
-- [ ] Update each status honestly; ledger has at least one refuted and one proxy row
-- [ ] Delete example rows EX1 and EX2 from claim-ledger.csv
-- [ ] Re-run pull_data.py from a fresh terminal and confirm the manifest still matches
+- [x] For every ledger row: trace the value to a raw file in data/raw/ and recompute it
+- [x] For every ledger row: open the citation
+- [x] For every ledger row: confirm geography (state, county, town), vintage (year), units (dollars / percent / index)
+- [x] Update each status honestly; ledger has at least one refuted and one proxy row
+- [x] Delete example rows EX1 and EX2 from claim-ledger.csv
+- [x] Re-run pull_data.py from a fresh terminal and confirm the manifest still matches
 
 **Step 9: Transfer trial**
 - [ ] Record in transfer-trial.md: who, date, machine, steps handed over, minutes to first success, every intervention, first confusing instruction
