@@ -71,7 +71,20 @@ A forest averages many trees built from different samples and feature choices. T
 ## Section 7. Break and verify (Steps 7 and 8)
 7.1 For F1 to F4, one sentence each: what you predicted, what happened, the repair. (Detail in `evidence/failure-recovery-log.md`.)
 
+- **F1 (Seeded brief):** We predicted claims C1 (pet counts), C2 (veterinarians as groomers), and C3 (national trends in Monroe) would fail because public sources collect no pet counts; in testing, C1 and C2 were refuted, C3 was unsupported, and C6 had overlapping confidence intervals, which we repaired by creating `evidence/corrected-brief.md` labeling pet counts as unknown and recommending a 4-week primary pilot.
+- **F2 (Broken requests):** We predicted 0 rows for missing leading zero (`county:71`), wrong county tracts for Chenango (`county:017`), and fewer tracts for 2009 vintage (`vintage:2009`); testing produced HTTP 204 (0 rows), 16 Chenango tracts, and 67 old tracts, which we repaired by correcting the parameters to `county:071` and `data/2023/` to yield exactly 92 Orange County tracts.
+- **F3 (Leakage table):** We predicted including `income_band` would produce an artificially inflated, near-perfect test score; observed R2 confirmed severe target leakage, which was repaired by removing `income_band` so the model learns only from legitimate non-target demographic features.
+- **F4 (MOE pair):** We predicted Warwick would lead on point estimate ($117,680 vs $116,019) but their margin-of-error ranges would overlap; testing confirmed an overlap of $17,210 between Warwick ($109,075–$126,285) and Monroe ($102,356–$129,682), which we repaired by concluding the towns are statistically indistinguishable on income and refusing to use household wealth to justify opening in either location.
+
 7.2 How many ledger claims ended as supported / proxy / unsupported / refuted?
+
+Across the 11 audited claims in `evidence/claim-ledger.csv` (notebook research claims L1–L5 and seeded brief claims C1–C6):
+- **Supported:** 3 claims (L1, L4, C6)
+- **Proxy:** 2 claims (C4, C5)
+- **Unsupported:** 2 claims (L3, C3)
+- **Refuted:** 4 claims (L2, L5, C1, C2)
+
+Total: 11 claims ledgered, verified against primary data, and preserved with zero deleted rows.
 
 ## Section 8. Transfer and reflection (Steps 9 and 10)
 8.1 First confusing instruction found in the transfer trial, and your fix:
