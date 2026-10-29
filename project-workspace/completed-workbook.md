@@ -45,7 +45,15 @@ Prediction (Vinh, 2026-10-27 14:52, before running): **92** tract rows. Observed
 ## Section 5. Research skill (Step 5)
 5.1 Which of the five cited answers did you mark "not confirmed", and what did the cited passage actually say?
 
+We marked Question 5 ("What is the difference in scope between NAICS 812910 Pet Care Services and NAICS 541940 Veterinary Services?") as **not confirmed**. NotebookLM stated that the ingested sources did not contain the specific definitions or scope descriptions for NAICS 812910 or 541940. When we opened the cited passages from the CBP About page, passage [1] only discussed broad sector exemptions: *"CBP covers most NAICS industries excluding Crop and Animal Production (NAICS 111,112); Rail Transportation (NAICS 482); Postal Service (NAICS 491)... and Private Households (NAICS 814)"*, while passages [2] and [3] were website navigation headers mentioning "NAICS Codes". The cited text never defined either code or their operational differences. We followed the course rule "no citation, no claim", marked it `not confirmed`, and recorded the claim as unconfirmed/refuted in `evidence/claim-ledger.csv` (row L5).
+
 5.2 What does the NotebookLM answer depend on that you chose (sources)? What could bias it?
+
+NotebookLM answers depend strictly on the four public primary sources we selected and uploaded: the Census ACS overview page, the Census CBP About page, the St. Louis Fed FRED documentation for CUSR0000SS61031, and our frozen `sample-data/orange_towns_clean.csv`. 
+
+Two factors could bias the findings:
+1. **Selection limitation (missing industry manuals)**: Providing only the high-level CBP overview meant the tool had no access to the 6-digit NAICS index, creating an information gap on service definitions (grooming vs medical care).
+2. **Geographic and product mismatch**: The FRED series is a national index for *pet food and treats*, not local *daycare or grooming* service labor. Relying on it could bias a business owner into assuming national commodity price inflation mirrors local service pricing power in Orange County. Furthermore, because no public Census source counts pets, relying strictly on demographic stand-ins (e.g. income, homeownership) could bias the analysis by assuming pet ownership perfectly tracks household income.
 
 ## Section 6. Models (Step 6)
 6.1 Prediction before running: held-out R2 for the unpruned tree, depth-3 tree, forest.

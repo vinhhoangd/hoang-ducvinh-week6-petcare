@@ -2,11 +2,12 @@
 
 Keep this open all week. Add a row every time an agent proposes a command, a file change, or an answer you rely on. An agent saying "done" is never verification: the Verification column must name something you observed yourself.
 
-**Agent used (agy or Codex):** Vinh: Claude Code (Opus 5.5). Yuhe: ___ Shiming: Copilot SDK in VS Code.
+**Agent used (agy or Codex):** Vinh: Claude Code (Opus 5.5). Yuhe: Antigravity (Gemini 3.8 Flash, Medium). Shiming: Copilot SDK in VS Code.
 
 ## Resume point (update at the end of every session)
 
-> Last step finished: Shiming's Step 6 model run and AI-assisted model-card/workbook drafts — 2026-10-27. Next: Shiming should rewrite the study and reflection answers in their own words; Yuhe continues Step 5.
+> Last step finished: Step 5 (NotebookLM research skill, sources ingested, 5 queries audited, claim ledger populated, workbook Section 5 complete) and Step 6 (model fitting) — 2026-10-29. Next: Step 7 Break it (F1–F4); Shiming rewrites study/reflection answers in own words.
+
 
 ## Required entry: credential refusal (graded)
 
@@ -29,6 +30,10 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 | Step 3 plan (b) (2026-10-27 14:49) | `skills/source-grounded-research/SKILL.md`; `nlm notebook create`, `nlm source add`, `nlm notebook query` in Yuhe's NotebookLM | Source-grounded research with citations | Uses the human's login (agent only runs `nlm login --check`); a notebook is created in Yuhe's account | Notebooks are never deleted without asking the instructor | **Accept** (Vinh) |
 | Step 3 plan (b) setup | `nlm skill install …` for Claude Code | Teach the agent the nlm commands | Writes a skill folder in the project | Delete that folder | **Accept on condition**: exact option confirmed from `nlm skill install --help` and shown to the team before running |
 | Step 3 plan (c) (2026-10-27 14:49) | `model/fit_models.py` | Unpruned tree, depth-3 tree, random forest on tract income; 25% held-out test set (seed 42); residuals; leakage test | Prints only; changes no data files | Delete the script | **Accept** (Vinh): it uses a held-out test set the models never train on |
+| `nlm skill install agents --level project` (2026-10-29 14:21) | `.agents/skills/nlm-skill/` | Install the NotebookLM skill for agents (Yuhe) | Installs skill reference documentation | Delete `.agents/` | **Accept** (Yuhe) |
+| `nlm notebook create "Pet-care - Warwick town vs Monroe town"` (2026-10-29 14:26) | Google NotebookLM (`19bee78f-0c51-44d6-8a27-53bb8fd1c700`) | Create dedicated notebook for Case 4 pet care research | Cloud mutation in Google account | Never delete without instructor permission | **Accept** (Yuhe) |
+| `nlm source add` (4 sources) (2026-10-29 14:27) | Notebook `petcare` | Attach ACS About, CBP About, FRED series, and `orange_towns_clean.csv` | Uploads public links and frozen data | Delete sources if wrong URL | **Accept** (Yuhe) |
+| `nlm notebook query` (5 queries) (2026-10-29 14:28) | Notebook `petcare` | Execute 5 cited queries to verify primary sources and claims | Read-only API queries | None | **Accept** (Yuhe) |
 
 ## AI-use records (tool, task, output, my decision, verification, limitation)
 
@@ -40,4 +45,6 @@ If an agent ever asks for your Census key, FRED key, or NotebookLM login, refuse
 | 4 (2026-10-27 14:57) | Claude Code | Variable dictionary | `data/variable-dictionary.md` from the official Census variable list + FRED series page | Accepted | Labels pulled from `variables.json` (no key needed); FRED units read on the FRED page: "Index Dec 1997=100, Seasonally Adjusted" | **Found an error in the frozen sample:** its `under5` column is B09001_003E = "Under 3 years"; our table names it `under3` and adds a real `under5` |
 | 7 F2 (2026-10-27 14:57) | Claude Code + Vinh | Run the three broken requests and their fixes | `python scripts/pull_data.py --broken` | Accepted | Vinh predicted first (14:52). Results: A 204/0, B 200/16 (Chenango County), C 200/67; each fixed request 92. B and C responses are byte-identical to the course fixtures | B and C return HTTP 200 while being wrong — status alone is not verification |
 | 4 rerun (2026-10-27 15:12) | Vinh ran `python scripts/pull_data.py` again; Claude Code checked the result | Fresh re-run (demo practice) | All 5 requests 200, 92 tracts, key absent | **Bug found and fixed**: the normal run rewrote `api-manifest.md` and erased the Step 7 F2 section. Script now keeps the F2 section; F2 rows restored from git | `git diff` showed the manifest lost 17 lines; data files unchanged; a simulated fresh pull now keeps F2 | Found only because a human re-ran it — the agent's own tests missed it |
+| 5 (2026-10-29 14:31) | Yuhe: Antigravity (Gemini 3.8 Flash, Medium) | Guide through Step 5: draft research skill, create notebook, ingest 4 sources, run 5 queries, audit citations, populate transcript & workbook | Drafted `SKILL.md`, created notebook `Pet-care - Warwick town vs Monroe town`, ingested 4 sources, ran 5 queries, verified citations, filled `evidence/notebooklm-transcript.md`, `evidence/claim-ledger.csv`, and `completed-workbook.md` Section 5 | Accepted | Checked `nlm login --check` personally (`yluo@stu.feitian.edu`). Verified citations against raw text: Q1–Q4 quotes confirmed. Identified Q5 cited text fails to define NAICS codes and marked it `not confirmed` | NotebookLM is an unofficial CLI relying on internal Google web endpoints and session cookies. Sources ingested lacked the full 6-digit NAICS manual. |
 | 6 (2026-10-27 15:24) | Shiming: Copilot SDK in VS Code | Draft and run `model/fit_models.py`; fill the Step 6 model card and workbook | Fits an unpruned tree, depth-3 tree and 500-tree random forest on 91 complete-target tracts; 25% held-out split, seed 42; computes 5-fold out-of-fold town residuals | Accepted as an AI-assisted draft; Shiming should rewrite the study/reflection answers in their own words | Ran `cd project-workspace && .venv/bin/python model/fit_models.py`; observed 92 input rows, 91 modeled rows, metrics, feature importances, and town residuals recorded in `evidence/model-card.md` | One fixed small test split (23 tracts); results and importance may vary with another split or sample; model is not a pet-demand measure. The required study summary draft was written after seeing results, so the "before you read the results" sequence was not met |
+

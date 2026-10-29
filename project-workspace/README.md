@@ -25,7 +25,17 @@ source .venv/bin/activate && set -a; . ./.env; set +a && python scripts/pull_dat
 ```
 It downloads five public datasets into `data/raw/`, writes clean tables in `data/clean/` and a receipt in `api-manifest.md`, and finishes with "OK: … 92 rows" when everything worked.
 
-Rebuilding the NotebookLM notebook: *(Yuhe adds the command for the research skill after Step 5.)*
+Rebuilding the NotebookLM notebook:
+Sign in to NotebookLM in your own terminal via `nlm login`, then run the reproducible commands in `skills/source-grounded-research/SKILL.md`:
+```bash
+nlm notebook create "Pet-care - Warwick town vs Monroe town"
+nlm alias set petcare <notebook-id>
+nlm source add petcare --url "https://www.census.gov/programs-surveys/acs/about.html" --wait
+nlm source add petcare --url "https://www.census.gov/programs-surveys/cbp/about.html" --wait
+nlm source add petcare --url "https://fred.stlouisfed.org/series/CUSR0000SS61031" --wait
+nlm source add petcare --file "sample-data/orange_towns_clean.csv" --wait
+```
+Query with `nlm notebook query petcare "<question>"`.
 
 ## One known limitation
 - The Census numbers are survey estimates averaged over 2019–2023, and each town is made of only a few neighbourhoods (8 tracts in Warwick, 5 in Monroe), so small differences between the towns can be noise.
