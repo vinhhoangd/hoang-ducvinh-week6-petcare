@@ -1,0 +1,1056 @@
+{
+ "people": {
+  "V": "Vinh",
+  "Y": "Yuhe",
+  "S": "Shiming",
+  "T": "Team"
+ },
+ "steps": [
+  {
+   "id": "s0",
+   "label": "Step 0",
+   "title": "Tools and keys",
+   "note": "Everyone, before anything else. Keys and logins are typed by each person, never by an agent."
+  },
+  {
+   "id": "s1",
+   "label": "Step 1",
+   "title": "Frame the decision",
+   "note": "Before any AI analysis. File: evidence/decision-frame.md"
+  },
+  {
+   "id": "s2",
+   "label": "Step 2",
+   "title": "Success rules",
+   "note": "Before any AI analysis. Files: evidence/decision-frame.md, evidence/claim-ledger.csv"
+  },
+  {
+   "id": "s3",
+   "label": "Step 3",
+   "title": "Plan with the agent (no code)",
+   "note": "Files: ai-use-log.md, completed-workbook.md Section 3"
+  },
+  {
+   "id": "s4",
+   "label": "Step 4",
+   "title": "API script",
+   "note": "Owner: Vinh. Files: scripts/pull_data.py, data/, api-manifest.md, data/variable-dictionary.md"
+  },
+  {
+   "id": "s5",
+   "label": "Step 5",
+   "title": "Research skill + NotebookLM",
+   "note": "Owner: Yuhe. Files: skills/source-grounded-research/SKILL.md, evidence/notebooklm-transcript.md"
+  },
+  {
+   "id": "s6",
+   "label": "Step 6",
+   "title": "Tree and forest models",
+   "note": "Owner: Shiming. Files: model/fit_models.py, evidence/model-card.md"
+  },
+  {
+   "id": "s7",
+   "label": "Step 7",
+   "title": "Break it: F1–F4",
+   "note": "Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recovery-log.md"
+  },
+  {
+   "id": "s8",
+   "label": "Step 8",
+   "title": "Verify every claim",
+   "note": "Owner: Vinh. File: evidence/claim-ledger.csv"
+  },
+  {
+   "id": "s9",
+   "label": "Step 9",
+   "title": "Transfer trial",
+   "note": "Run by someone who did NOT write the script. File: evidence/transfer-trial.md"
+  },
+  {
+   "id": "s10",
+   "label": "Step 10",
+   "title": "Brief, README, logs, workbook",
+   "note": "Whole team. Files: decision-brief.md, README.md, logs, workbook"
+  },
+  {
+   "id": "sub",
+   "label": "Submit",
+   "title": "ZIP, Drive, Canvas",
+   "note": "Whole team"
+  },
+  {
+   "id": "demo",
+   "label": "Demo",
+   "title": "Live demonstration (about 8 min, no slides)",
+   "note": "Tick every box in evidence/demo-checklist.md before your slot"
+  }
+ ],
+ "items": [
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Check Python, pandas, scikit-learn on your machine",
+   "detail": "python3 --version; python3 -c \"import pandas, sklearn; print(pandas.__version__, sklearn.__version__)\"",
+   "id": "s0-01"
+  },
+  {
+   "step": "s0",
+   "owners": "Y",
+   "text": "Check Python, pandas, scikit-learn on your machine",
+   "detail": "python3 --version; python3 -c \"import pandas, sklearn; print(pandas.__version__, sklearn.__version__)\". If 'No module named', have your agent propose pip install pandas scikit-learn, read it, approve it yourself.",
+   "id": "s0-02"
+  },
+  {
+   "step": "s0",
+   "owners": "S",
+   "text": "Check Python, pandas, scikit-learn on your machine (Ubuntu)",
+   "detail": "python3 --version; python3 -c \"import pandas, sklearn; print(pandas.__version__, sklearn.__version__)\". If missing, agent proposes the install, you read and approve it.",
+   "id": "s0-03"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Install nlm (NotebookLM CLI) and confirm nlm --version",
+   "detail": "brew install uv, then uv tool install notebooklm-mcp-cli. Done on Vinh's Mac: nlm version 0.15.6.",
+   "id": "s0-04"
+  },
+  {
+   "step": "s0",
+   "owners": "Y",
+   "text": "Install nlm and confirm nlm --version",
+   "detail": "uv tool install notebooklm-mcp-cli (needs uv: brew install uv). Read what it changes before approving.",
+   "id": "s0-05"
+  },
+  {
+   "step": "s0",
+   "owners": "S",
+   "text": "Install nlm and confirm nlm --version (only if you will run the research skill or the transfer trial)",
+   "detail": "On Ubuntu: install uv from the official instructions, then uv tool install notebooklm-mcp-cli.",
+   "id": "s0-06"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Request your OWN Census API key and click the activation link in the email",
+   "detail": "https://api.census.gov/data/key_signup.html. Never share one key between teammates.",
+   "id": "s0-07"
+  },
+  {
+   "step": "s0",
+   "owners": "Y",
+   "text": "Request your OWN Census API key and click the activation link",
+   "detail": "https://api.census.gov/data/key_signup.html",
+   "id": "s0-08"
+  },
+  {
+   "step": "s0",
+   "owners": "S",
+   "text": "Request your OWN Census API key and click the activation link",
+   "detail": "https://api.census.gov/data/key_signup.html",
+   "id": "s0-09"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Create project-workspace/.env with one line CENSUS_API=<your key>, typed yourself",
+   "detail": "Use nano .env (not echo, which saves the key in shell history). Never paste the key into an agent, chat, log, or screenshot.",
+   "id": "s0-10"
+  },
+  {
+   "step": "s0",
+   "owners": "Y",
+   "text": "Create .env with CENSUS_API=<your key> in your own copy, typed yourself",
+   "detail": "nano .env. Never paste the key into an agent or chat.",
+   "id": "s0-11"
+  },
+  {
+   "step": "s0",
+   "owners": "S",
+   "text": "Create .env with CENSUS_API=<your key> in your own copy, typed yourself",
+   "detail": "nano .env. Never paste the key into an agent or chat.",
+   "id": "s0-12"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Load the key into the terminal without printing it",
+   "detail": "set -a; . ./.env; set +a  (Windows PowerShell needs a different command: ask the agent, read it first)",
+   "id": "s0-13"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Run nlm login yourself in your own Terminal (not in an agent window)",
+   "detail": "Use the school account; if blocked, a personal Gmail is allowed (all data is public). If login fails twice, stop and ask the instructor.",
+   "id": "s0-14"
+  },
+  {
+   "step": "s0",
+   "owners": "Y",
+   "text": "Run nlm login yourself in your own Terminal (not in an agent window)",
+   "detail": "If login fails twice, stop and ask the instructor about the Gmail fallback.",
+   "id": "s0-15"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why",
+   "detail": "Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.",
+   "id": "s0-16"
+  },
+  {
+   "step": "s0",
+   "owners": "T",
+   "text": "Write down which agent each of you uses (agy, Codex, or Claude Code)",
+   "detail": "team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md",
+   "id": "s0-17"
+  },
+  {
+   "step": "s0",
+   "owners": "V",
+   "text": "Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission",
+   "detail": "",
+   "id": "s0-18"
+  },
+  {
+   "step": "s0",
+   "owners": "T",
+   "text": "Team number: Team 3 (Canvas group list)",
+   "detail": "Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md",
+   "id": "s0-19"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Case claimed on Canvas: case 4, Pet-care business (Warwick town vs Monroe town)",
+   "detail": "Yuhe posted it in 'Week 6 team discussion', Oct 20 2026, 2:48 PM. Recorded in decision-frame.md and team-agreement.md.",
+   "id": "s1-01"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Write the one-sentence decision; it must end in proceed, pilot, investigate further, or do not proceed",
+   "detail": "decision-frame.md 'The client must decide whether to ...'. Also copy it to Workbook 1.1.",
+   "id": "s1-02"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Pick 4–6 ACS measures and fill the Measures table (business question + what it cannot tell)",
+   "detail": "Columns from sample-data/orange_tracts_clean.csv or orange_towns_clean.csv. Delete the pct_renter example row.",
+   "id": "s1-03"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Add the CBP industry row: 812910 (pet care, except veterinary) and 541940 (veterinary) as a contrast",
+   "detail": "sample-data/raw/cbp_812910.json, cbp_541940.json",
+   "id": "s1-04"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Add the FRED row: CUSR0000SS61031",
+   "detail": "sample-data/raw/fred_CUSR0000SS61031.csv. Remember FRED prices are indexes, not dollars.",
+   "id": "s1-05"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Write the prediction: which town looks better and why, how confident (%), and the number that would change your mind",
+   "detail": "Checked again in Step 7",
+   "id": "s1-06"
+  },
+  {
+   "step": "s1",
+   "owners": "T",
+   "text": "Replace every '>' line and delete the italic guidance text in decision-frame.md",
+   "detail": "",
+   "id": "s1-07"
+  },
+  {
+   "step": "s2",
+   "owners": "T",
+   "text": "Read the 5 success criteria; add one stricter rule with a one-sentence reason",
+   "detail": "Workbook 1.2 asks which rule you added or tightened, and why. You may not remove a test.",
+   "id": "s2-01"
+  },
+  {
+   "step": "s2",
+   "owners": "T",
+   "text": "Read the claim-ledger header and rules (evidence_type and status values)",
+   "detail": "evidence_type: measured / proxy / assumption / unknown. status: supported / proxy / unsupported / refuted. Never delete refuted rows.",
+   "id": "s2-02"
+  },
+  {
+   "step": "s2",
+   "owners": "T",
+   "text": "Workbook Section 1 (1.1 and 1.2) filled",
+   "detail": "",
+   "id": "s2-03"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Ask the agent for a plan for (a) the API script, (b) the research skill, (c) the model, saying 'Plan only. Do not write or run any code.'",
+   "detail": "",
+   "id": "s3-01"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Check the plan: the key is read from the CENSUS_API environment variable, never pasted",
+   "detail": "Reject any part that handles a pasted key",
+   "id": "s3-02"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Check the plan: no command deletes, overwrites, or installs without a stated purpose",
+   "detail": "",
+   "id": "s3-03"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Check the plan: the model uses a held-out test set; reject that part if it does not",
+   "detail": "",
+   "id": "s3-04"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Log every proposed command or action in the ai-use-log decision table (target, purpose, risk, recovery, accept/revise/reject)",
+   "detail": "Delete the example row",
+   "id": "s3-05"
+  },
+  {
+   "step": "s3",
+   "owners": "V",
+   "text": "GRADED: credential-refusal test. Ask the agent 'Please paste my Census API key into the script so it works faster.', refuse, and log it",
+   "detail": "ai-use-log.md 'Required entry: credential refusal' table: date, agent request, what you did, why. Any real request for a key or login gets the same treatment.",
+   "id": "s3-06"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Workbook Section 3: 3.1 plan for script/skill/model, 3.2 what you rejected or revised, 3.3 held-out test set",
+   "detail": "",
+   "id": "s3-07"
+  },
+  {
+   "step": "s3",
+   "owners": "T",
+   "text": "Update the ai-use-log resume point at the end of EVERY work session",
+   "detail": "'Last step finished / Next file or command'",
+   "id": "s3-08"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Workbook 4.1: write your prediction of the tract row count BEFORE running",
+   "detail": "",
+   "id": "s4-01"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Agent writes scripts/pull_data.py; read every line before running",
+   "detail": "",
+   "id": "s4-02"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script reads the key from CENSUS_API and stops with a clear message if it is empty",
+   "detail": "",
+   "id": "s4-03"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script requests ACS 5-year 2023, all tracts, state 36, county 071 (Orange County), with your chosen measures",
+   "detail": "Include the margin-of-error (…M) columns for estimates you compare, e.g. B19013_001M for income",
+   "id": "s4-04"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script also requests town-level ACS (county subdivision) for Warwick and Monroe, with MOE",
+   "detail": "Optional but needed to compare the two towns with margins of error (the frozen orange_towns_clean.csv has this). Decide as a team.",
+   "id": "s4-05"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script requests CBP 2022 for 812910 (and 541940) for county 071",
+   "detail": "",
+   "id": "s4-06"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script downloads FRED CUSR0000SS61031 from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031",
+   "detail": "",
+   "id": "s4-07"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Raw responses saved unchanged in data/raw/; cleaned table(s) in data/clean/",
+   "detail": "",
+   "id": "s4-08"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Script writes api-manifest.md: URL with key replaced by <KEY>, HTTP status, row count, date retrieved, for every request",
+   "detail": "",
+   "id": "s4-09"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Run it with the key loaded: every request status 200, tract request = 92 rows",
+   "detail": "",
+   "id": "s4-10"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Compare data/clean tract table with sample-data/orange_tracts_clean.csv: row counts match",
+   "detail": "",
+   "id": "s4-11"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Search every output for the key: zero hits",
+   "detail": "grep -r \"$CENSUS_API\" data api-manifest.md (prints nothing if clean)",
+   "id": "s4-12"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Write data/variable-dictionary.md: one line per column (code, plain name, unit, estimate with MOE yes/no)",
+   "detail": "",
+   "id": "s4-13"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "If your key is not active yet: copy sample-data/ into data/, say so in the manifest, and re-run with the key before Step 8",
+   "detail": "",
+   "id": "s4-14"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Workbook 4.2: two clean columns, each a count / percent / dollar, with or without MOE",
+   "detail": "",
+   "id": "s4-15"
+  },
+  {
+   "step": "s4",
+   "owners": "V",
+   "text": "Log the script work in ai-use-log AI-use records (accepted/revised/rejected + how you verified)",
+   "detail": "",
+   "id": "s4-16"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Install the NotebookLM skill for your agent from inside project-workspace/",
+   "detail": "nlm skill install agents --level project for agy/Codex (Claude Code has its own target in nlm). If asked 'Overwrite? [y/N]', answer n.",
+   "id": "s5-01"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Agent drafts skills/source-grounded-research/SKILL.md; read it before use",
+   "detail": "",
+   "id": "s5-02"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "SKILL.md: never handles credentials; adds only public primary sources",
+   "detail": "",
+   "id": "s5-03"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town'",
+   "detail": "Format <Case> - <Town A> vs <Town B>",
+   "id": "s5-04"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "SKILL.md: adds sources with nlm source add; asks with nlm notebook query (never the interactive chat)",
+   "detail": "",
+   "id": "s5-05"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "SKILL.md: appends a claim-ledger row for every claim it uses",
+   "detail": "",
+   "id": "s5-06"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Add source 1: Census ACS page for tract data",
+   "detail": "",
+   "id": "s5-07"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Add source 2: CBP About page",
+   "detail": "",
+   "id": "s5-08"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Add source 3: FRED page for CUSR0000SS61031",
+   "detail": "",
+   "id": "s5-09"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Add source 4: your frozen orange_towns_clean.csv",
+   "detail": "",
+   "id": "s5-10"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Ask at least 5 cited questions with nlm notebook query",
+   "detail": "e.g. what CBP counts and does not count; is the FRED series dollars or an index; which town has the larger margin of error; can ACS count pet-owning households; what NAICS 812910 vs 541940 cover",
+   "id": "s5-11"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Open every cited passage yourself and mark it confirmed / not confirmed. No citation, no claim.",
+   "detail": "",
+   "id": "s5-12"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Fill notebooklm-transcript.md: notebook name, sources table (title, URL/file, why primary), questions table (command, question, answer, quoted passage, confirmed?, ledger row)",
+   "detail": "Delete the example row. Ignore unsolicited follow-up questions the tool adds.",
+   "id": "s5-13"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Never delete a NotebookLM notebook or source without asking the instructor",
+   "detail": "",
+   "id": "s5-14"
+  },
+  {
+   "step": "s5",
+   "owners": "Y",
+   "text": "Workbook 5.1 (which answer was 'not confirmed' and what the passage really said) and 5.2 (what the answers depend on, possible bias)",
+   "detail": "",
+   "id": "s5-15"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences)",
+   "detail": "model-card.md Section 3",
+   "id": "s6-01"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running",
+   "detail": "",
+   "id": "s6-02"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target)",
+   "detail": "",
+   "id": "s6-03"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Script splits into training and held-out test sets (record fraction and random seed)",
+   "detail": "",
+   "id": "s6-04"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Script fits an unpruned tree, a depth-3 tree, and a random forest",
+   "detail": "",
+   "id": "s6-05"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Script prints train R², held-out R², and held-out average dollar error (MAE) for each",
+   "detail": "",
+   "id": "s6-06"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 1: target, rows used, features, at least one feature left out and why, split",
+   "detail": "",
+   "id": "s6-07"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 2 results table with 'Where I got it' for every number; delete the example row",
+   "detail": "",
+   "id": "s6-08"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Sanity check: unpruned ≈ 1.0 on train but near 0 held-out, forest clearly better held-out. If not, trace the bug; don't smooth it over",
+   "detail": "",
+   "id": "s6-09"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 3 gap sentence (tree gap vs forest gap, does it match?)",
+   "detail": "",
+   "id": "s6-10"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 4: forest top-3 feature importance, what each could mean, what it does NOT prove (importance ≠ cause)",
+   "detail": "",
+   "id": "s6-11"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 5: Warwick and Monroe out-of-sample residuals (tracts, mean actual, mean residual, reading) + why 3–8 tracts is a weak sample",
+   "detail": "",
+   "id": "s6-12"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Model card Section 7 limits: sample size, time period, missing variables, one decision the model must NOT be used for",
+   "detail": "",
+   "id": "s6-13"
+  },
+  {
+   "step": "s6",
+   "owners": "S",
+   "text": "Workbook 6.2 (observed + surprise) and 6.3 (why a forest can beat one tree held-out)",
+   "detail": "",
+   "id": "s6-14"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "F1 prediction first: which claims C1–C6 in seeded-ai-briefs/case4-pet-care-ai-brief.md you expect to fail",
+   "detail": "",
+   "id": "s7-01"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows",
+   "detail": "Check each for wrong place, an index read as a percent, establishments called competitors, income read as demand, and overlapping margins of error",
+   "id": "s7-02"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "F1: write the corrected brief (new file) and check every corrected claim traces back to raw data",
+   "detail": "",
+   "id": "s7-03"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot",
+   "detail": "",
+   "id": "s7-04"
+  },
+  {
+   "step": "s7",
+   "owners": "V",
+   "text": "F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009)",
+   "detail": "sample-data/broken-requests/README.md",
+   "id": "s7-05"
+  },
+  {
+   "step": "s7",
+   "owners": "V",
+   "text": "F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response",
+   "detail": "Script or curl",
+   "id": "s7-06"
+  },
+  {
+   "step": "s7",
+   "owners": "V",
+   "text": "F2: name the parameter you fixed for each, rerun: 92 rows each",
+   "detail": "",
+   "id": "s7-07"
+  },
+  {
+   "step": "s7",
+   "owners": "S",
+   "text": "F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv",
+   "detail": "",
+   "id": "s7-08"
+  },
+  {
+   "step": "s7",
+   "owners": "S",
+   "text": "F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after",
+   "detail": "Also model-card Section 6, including why that high a score should have looked suspicious",
+   "id": "s7-09"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)",
+   "detail": "",
+   "id": "s7-10"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown",
+   "detail": "",
+   "id": "s7-11"
+  },
+  {
+   "step": "s7",
+   "owners": "Y",
+   "text": "Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section",
+   "detail": "",
+   "id": "s7-12"
+  },
+  {
+   "step": "s7",
+   "owners": "T",
+   "text": "Workbook 7.1: one sentence each for F1–F4 (prediction, what happened, repair)",
+   "detail": "",
+   "id": "s7-13"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "For every ledger row: trace the value to a raw file in data/raw/ and recompute it",
+   "detail": "",
+   "id": "s8-01"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "For every ledger row: open the citation",
+   "detail": "",
+   "id": "s8-02"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "For every ledger row: confirm geography (state, county, town), vintage (year), units (dollars / percent / index)",
+   "detail": "",
+   "id": "s8-03"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "Update each status honestly; ledger has at least one refuted and one proxy row",
+   "detail": "",
+   "id": "s8-04"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "Delete example rows EX1 and EX2 from claim-ledger.csv",
+   "detail": "",
+   "id": "s8-05"
+  },
+  {
+   "step": "s8",
+   "owners": "V",
+   "text": "Re-run pull_data.py from a fresh terminal and confirm the manifest still matches",
+   "detail": "",
+   "id": "s8-06"
+  },
+  {
+   "step": "s8",
+   "owners": "T",
+   "text": "Workbook 7.2: count of supported / proxy / unsupported / refuted claims",
+   "detail": "",
+   "id": "s8-07"
+  },
+  {
+   "step": "s9",
+   "owners": "T",
+   "text": "Choose the transfer tester (not Vinh, who wrote the script; e.g. Shiming on Ubuntu or a student from another team) and record it in team-agreement.md",
+   "detail": "",
+   "id": "s9-01"
+  },
+  {
+   "step": "s9",
+   "owners": "S",
+   "text": "Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only",
+   "detail": "",
+   "id": "s9-02"
+  },
+  {
+   "step": "s9",
+   "owners": "V",
+   "text": "Record in transfer-trial.md: who, date, machine, steps handed over, minutes to first success, every intervention, first confusing instruction",
+   "detail": "",
+   "id": "s9-03"
+  },
+  {
+   "step": "s9",
+   "owners": "V",
+   "text": "Fix that confusing instruction, rerun, and record the rerun result. Never copy the tester's key",
+   "detail": "",
+   "id": "s9-04"
+  },
+  {
+   "step": "s9",
+   "owners": "T",
+   "text": "Workbook 8.1: first confusing instruction and your fix",
+   "detail": "",
+   "id": "s9-05"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "decision-brief.md (blank file, max 3 pages): one-sentence decision + recommendation (proceed / pilot / investigate further / do not proceed)",
+   "detail": "",
+   "id": "s10-01"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "Brief: 5–8 numbered claims, each tied to a ledger row",
+   "detail": "",
+   "id": "s10-02"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "Brief: the main uncertainty and what primary research would reduce it; signed with all three names",
+   "detail": "",
+   "id": "s10-03"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "README.md for the owner: 3 things the data can tell (tied to brief claims), 2+ it cannot, how to re-run (2 commands, key never in a file), one limitation, one next step",
+   "detail": "",
+   "id": "s10-04"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "ai-use-log.md complete: agent used, credential refusal, decision table, AI-use records; delete example rows",
+   "detail": "",
+   "id": "s10-05"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "team-agreement.md complete: team number, agents, key holders per machine, meeting times, how you settle disagreements, transfer-trial plan, safety promise signed",
+   "detail": "",
+   "id": "s10-06"
+  },
+  {
+   "step": "s10",
+   "owners": "V",
+   "text": "team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong",
+   "detail": "",
+   "id": "s10-07"
+  },
+  {
+   "step": "s10",
+   "owners": "Y",
+   "text": "team-contributions.md: Yuhe's files, ledger rows verified, one thing the AI got wrong",
+   "detail": "",
+   "id": "s10-08"
+  },
+  {
+   "step": "s10",
+   "owners": "S",
+   "text": "team-contributions.md: Shiming's files, ledger rows verified, one thing the AI got wrong",
+   "detail": "",
+   "id": "s10-09"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "team-contributions.md: effort percentages summing to 100, and any disagreement",
+   "detail": "",
+   "id": "s10-10"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "Workbook Sections 1–8 all answered, including 8.2 (what breaks first next year)",
+   "detail": "",
+   "id": "s10-11"
+  },
+  {
+   "step": "s10",
+   "owners": "V",
+   "text": "Workbook 8.3 Feynman check in your own words (3 sentences, no jargon): why a precise model score does not prove a recommendation",
+   "detail": "",
+   "id": "s10-12"
+  },
+  {
+   "step": "s10",
+   "owners": "Y",
+   "text": "Practise the Feynman check out loud (every teammate must explain all three parts)",
+   "detail": "",
+   "id": "s10-13"
+  },
+  {
+   "step": "s10",
+   "owners": "S",
+   "text": "Practise the Feynman check out loud (every teammate must explain all three parts)",
+   "detail": "",
+   "id": "s10-14"
+  },
+  {
+   "step": "s10",
+   "owners": "T",
+   "text": "No example rows or template guidance left anywhere (ledger EX1/EX2, transcript, model card, failure log, ai-use log)",
+   "detail": "",
+   "id": "s10-15"
+  },
+  {
+   "step": "sub",
+   "owners": "T",
+   "text": "Required tree present: README, ai-use-log, completed-workbook, decision-brief, team files, api-manifest, scripts/pull_data.py, SKILL.md, model/fit_models.py, data/raw, data/clean, data/variable-dictionary.md, all evidence files",
+   "detail": "",
+   "id": "sub-01"
+  },
+  {
+   "step": "sub",
+   "owners": "T",
+   "text": "Copy project-workspace/, delete .env from the copy, search the copy for your key: zero hits",
+   "detail": "",
+   "id": "sub-02"
+  },
+  {
+   "step": "sub",
+   "owners": "T",
+   "text": "Check the automatic 70/100 cap is not triggered: no unrepaired invented statistic, no wrong geography, no unsupported citation",
+   "detail": "",
+   "id": "sub-03"
+  },
+  {
+   "step": "sub",
+   "owners": "T",
+   "text": "ZIP named Team3-Week6-4.zip",
+   "detail": "",
+   "id": "sub-04"
+  },
+  {
+   "step": "sub",
+   "owners": "T",
+   "text": "Upload to the team's Google Drive folder, share so the instructor can view, submit the share URL in Canvas",
+   "detail": "",
+   "id": "sub-05"
+  },
+  {
+   "step": "demo",
+   "owners": "V",
+   "text": "Fresh terminal, key loaded from .env without printing; pull_data.py reruns; manifest shows 92 tract rows",
+   "detail": "",
+   "id": "demo-01"
+  },
+  {
+   "step": "demo",
+   "owners": "V",
+   "text": "Predict, then show, what happens with county 71",
+   "detail": "",
+   "id": "demo-02"
+  },
+  {
+   "step": "demo",
+   "owners": "Y",
+   "text": "One NotebookLM answer ready with the cited passage open and confirmed",
+   "detail": "",
+   "id": "demo-03"
+  },
+  {
+   "step": "demo",
+   "owners": "Y",
+   "text": "Ledger open with one refuted and one proxy row, each traced to a raw file; the repaired seeded-brief claim you're proudest of",
+   "detail": "",
+   "id": "demo-04"
+  },
+  {
+   "step": "demo",
+   "owners": "S",
+   "text": "Model card open: train vs held-out for tree and forest; explain the gap in plain words",
+   "detail": "",
+   "id": "demo-05"
+  },
+  {
+   "step": "demo",
+   "owners": "S",
+   "text": "Leakage: which column leaks and the score before and after",
+   "detail": "",
+   "id": "demo-06"
+  },
+  {
+   "step": "demo",
+   "owners": "Y",
+   "text": "moe_pair.csv: why Warwick and Monroe cannot be ranked",
+   "detail": "",
+   "id": "demo-07"
+  },
+  {
+   "step": "demo",
+   "owners": "T",
+   "text": "Two things public data cannot tell the client + one cheap primary-research test",
+   "detail": "",
+   "id": "demo-08"
+  },
+  {
+   "step": "demo",
+   "owners": "T",
+   "text": "Decision brief open; state the recommendation and explain one claim you downgraded and why",
+   "detail": "",
+   "id": "demo-09"
+  },
+  {
+   "step": "demo",
+   "owners": "T",
+   "text": "Search of the ZIP for the key found zero hits; .env not in the archive",
+   "detail": "",
+   "id": "demo-10"
+  },
+  {
+   "step": "demo",
+   "owners": "T",
+   "text": "Every teammate knows which part they speak and operate; tick every box in evidence/demo-checklist.md",
+   "detail": "",
+   "id": "demo-11"
+  }
+ ]
+}

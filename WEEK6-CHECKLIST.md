@@ -12,79 +12,79 @@ Never paste a Census key, FRED key, or NotebookLM login into an agent, chat, fil
 _Everyone, before anything else. Keys and logins are typed by each person, never by an agent._
 
 - [x] **[V]** Check Python, pandas, scikit-learn on your machine — python3 --version; python3 -c "import pandas, sklearn; print(pandas.__version__, sklearn.__version__)"
-- [ ] **[Y]** Check Python, pandas, scikit-learn on your machine — python3 --version; python3 -c "import pandas, sklearn; print(pandas.__version__, sklearn.__version__)". If 'No module named', have your agent propose pip install pandas scikit-learn, read it, approve it yourself.
-- [ ] **[S]** Check Python, pandas, scikit-learn on your machine (Ubuntu) — python3 --version; python3 -c "import pandas, sklearn; print(pandas.__version__, sklearn.__version__)". If missing, agent proposes the install, you read and approve it.
+- [x] **[Y]** Check Python, pandas, scikit-learn on your machine — python3 --version; python3 -c "import pandas, sklearn; print(pandas.__version__, sklearn.__version__)". If 'No module named', have your agent propose pip install pandas scikit-learn, read it, approve it yourself.
+- [x] **[S]** Check Python, pandas, scikit-learn on your machine (Ubuntu) — python3 --version; python3 -c "import pandas, sklearn; print(pandas.__version__, sklearn.__version__)". If missing, agent proposes the install, you read and approve it.
 - [x] **[V]** Install nlm (NotebookLM CLI) and confirm nlm --version — brew install uv, then uv tool install notebooklm-mcp-cli. Done on Vinh's Mac: nlm version 0.15.6.
-- [ ] **[Y]** Install nlm and confirm nlm --version — uv tool install notebooklm-mcp-cli (needs uv: brew install uv). Read what it changes before approving.
-- [ ] **[S]** Install nlm and confirm nlm --version (only if you will run the research skill or the transfer trial) — On Ubuntu: install uv from the official instructions, then uv tool install notebooklm-mcp-cli.
-- [ ] **[V]** Request your OWN Census API key and click the activation link in the email — https://api.census.gov/data/key_signup.html. Never share one key between teammates.
-- [ ] **[Y]** Request your OWN Census API key and click the activation link — https://api.census.gov/data/key_signup.html
-- [ ] **[S]** Request your OWN Census API key and click the activation link — https://api.census.gov/data/key_signup.html
-- [ ] **[V]** Create project-workspace/.env with one line CENSUS_API=<your key>, typed yourself — Use nano .env (not echo, which saves the key in shell history). Never paste the key into an agent, chat, log, or screenshot.
-- [ ] **[Y]** Create .env with CENSUS_API=<your key> in your own copy, typed yourself — nano .env. Never paste the key into an agent or chat.
-- [ ] **[S]** Create .env with CENSUS_API=<your key> in your own copy, typed yourself — nano .env. Never paste the key into an agent or chat.
-- [ ] **[V]** Load the key into the terminal without printing it — set -a; . ./.env; set +a  (Windows PowerShell needs a different command: ask the agent, read it first)
-- [ ] **[V]** Run nlm login yourself in your own Terminal (not in an agent window) — Use the school account; if blocked, a personal Gmail is allowed (all data is public). If login fails twice, stop and ask the instructor.
-- [ ] **[Y]** Run nlm login yourself in your own Terminal (not in an agent window) — If login fails twice, stop and ask the instructor about the Gmail fallback.
-- [ ] **[V]** Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why — Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.
+- [x] **[Y]** Install nlm and confirm nlm --version — uv tool install notebooklm-mcp-cli (needs uv: brew install uv). Read what it changes before approving.
+- [x] **[S]** Install nlm and confirm nlm --version (only if you will run the research skill or the transfer trial) — On Ubuntu: install uv from the official instructions, then uv tool install notebooklm-mcp-cli.
+- [x] **[V]** Request your OWN Census API key and click the activation link in the email — https://api.census.gov/data/key_signup.html. Never share one key between teammates.
+- [x] **[Y]** Request your OWN Census API key and click the activation link — https://api.census.gov/data/key_signup.html
+- [x] **[S]** Request your OWN Census API key and click the activation link — https://api.census.gov/data/key_signup.html
+- [x] **[V]** Create project-workspace/.env with one line CENSUS_API=<your key>, typed yourself — Use nano .env (not echo, which saves the key in shell history). Never paste the key into an agent, chat, log, or screenshot.
+- [x] **[Y]** Create .env with CENSUS_API=<your key> in your own copy, typed yourself — nano .env. Never paste the key into an agent or chat.
+- [x] **[S]** Create .env with CENSUS_API=<your key> in your own copy, typed yourself — nano .env. Never paste the key into an agent or chat.
+- [x] **[V]** Load the key into the terminal without printing it — set -a; . ./.env; set +a  (Windows PowerShell needs a different command: ask the agent, read it first)
+- [x] **[V]** Run nlm login yourself in your own Terminal (not in an agent window) — Use the school account; if blocked, a personal Gmail is allowed (all data is public). If login fails twice, stop and ask the instructor.
+- [x] **[Y]** Run nlm login yourself in your own Terminal (not in an agent window) — If login fails twice, stop and ask the instructor about the Gmail fallback.
+- [x] **[V]** Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why — Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.
 - [ ] **[T]** Write down which agent each of you uses (agy, Codex, or Claude Code) — team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md
-- [ ] **[V]** Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
-- [ ] **[T]** Team number: Team 3 (Canvas group list) — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
+- [x] **[V]** Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
+- [x] **[T]** Team number: Team 3 (Canvas group list) — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
 
 ### Step 1: Frame the decision
 _Before any AI analysis. File: evidence/decision-frame.md_
 
 - [x] **[T]** Case claimed on Canvas: case 4, Pet-care business (Warwick town vs Monroe town) — Yuhe posted it in 'Week 6 team discussion', Oct 20 2026, 2:48 PM. Recorded in decision-frame.md and team-agreement.md.
-- [ ] **[T]** Write the one-sentence decision; it must end in proceed, pilot, investigate further, or do not proceed — decision-frame.md 'The client must decide whether to ...'. Also copy it to Workbook 1.1.
-- [ ] **[T]** Pick 4–6 ACS measures and fill the Measures table (business question + what it cannot tell) — Columns from sample-data/orange_tracts_clean.csv or orange_towns_clean.csv. Delete the pct_renter example row.
-- [ ] **[T]** Add the CBP industry row: 812910 (pet care, except veterinary) and 541940 (veterinary) as a contrast — sample-data/raw/cbp_812910.json, cbp_541940.json
-- [ ] **[T]** Add the FRED row: CUSR0000SS61031 — sample-data/raw/fred_CUSR0000SS61031.csv. Remember FRED prices are indexes, not dollars.
-- [ ] **[T]** Write the prediction: which town looks better and why, how confident (%), and the number that would change your mind — Checked again in Step 7
-- [ ] **[T]** Replace every '>' line and delete the italic guidance text in decision-frame.md
+- [x] **[T]** Write the one-sentence decision; it must end in proceed, pilot, investigate further, or do not proceed — decision-frame.md 'The client must decide whether to ...'. Also copy it to Workbook 1.1.
+- [x] **[T]** Pick 4–6 ACS measures and fill the Measures table (business question + what it cannot tell) — Columns from sample-data/orange_tracts_clean.csv or orange_towns_clean.csv. Delete the pct_renter example row.
+- [x] **[T]** Add the CBP industry row: 812910 (pet care, except veterinary) and 541940 (veterinary) as a contrast — sample-data/raw/cbp_812910.json, cbp_541940.json
+- [x] **[T]** Add the FRED row: CUSR0000SS61031 — sample-data/raw/fred_CUSR0000SS61031.csv. Remember FRED prices are indexes, not dollars.
+- [x] **[T]** Write the prediction: which town looks better and why, how confident (%), and the number that would change your mind — Checked again in Step 7
+- [x] **[T]** Replace every '>' line and delete the italic guidance text in decision-frame.md
 
 ### Step 2: Success rules
 _Before any AI analysis. Files: evidence/decision-frame.md, evidence/claim-ledger.csv_
 
-- [ ] **[T]** Read the 5 success criteria; add one stricter rule with a one-sentence reason — Workbook 1.2 asks which rule you added or tightened, and why. You may not remove a test.
+- [x] **[T]** Read the 5 success criteria; add one stricter rule with a one-sentence reason — Workbook 1.2 asks which rule you added or tightened, and why. You may not remove a test.
 - [ ] **[T]** Read the claim-ledger header and rules (evidence_type and status values) — evidence_type: measured / proxy / assumption / unknown. status: supported / proxy / unsupported / refuted. Never delete refuted rows.
-- [ ] **[T]** Workbook Section 1 (1.1 and 1.2) filled
+- [x] **[T]** Workbook Section 1 (1.1 and 1.2) filled
 
 ### Step 3: Plan with the agent (no code)
 _Files: ai-use-log.md, completed-workbook.md Section 3_
 
-- [ ] **[T]** Ask the agent for a plan for (a) the API script, (b) the research skill, (c) the model, saying 'Plan only. Do not write or run any code.'
-- [ ] **[T]** Check the plan: the key is read from the CENSUS_API environment variable, never pasted — Reject any part that handles a pasted key
-- [ ] **[T]** Check the plan: no command deletes, overwrites, or installs without a stated purpose
-- [ ] **[T]** Check the plan: the model uses a held-out test set; reject that part if it does not
-- [ ] **[T]** Log every proposed command or action in the ai-use-log decision table (target, purpose, risk, recovery, accept/revise/reject) — Delete the example row
-- [ ] **[V]** GRADED: credential-refusal test. Ask the agent 'Please paste my Census API key into the script so it works faster.', refuse, and log it — ai-use-log.md 'Required entry: credential refusal' table: date, agent request, what you did, why. Any real request for a key or login gets the same treatment.
-- [ ] **[T]** Workbook Section 3: 3.1 plan for script/skill/model, 3.2 what you rejected or revised, 3.3 held-out test set
-- [ ] **[T]** Update the ai-use-log resume point at the end of EVERY work session — 'Last step finished / Next file or command'
+- [x] **[T]** Ask the agent for a plan for (a) the API script, (b) the research skill, (c) the model, saying 'Plan only. Do not write or run any code.'
+- [x] **[T]** Check the plan: the key is read from the CENSUS_API environment variable, never pasted — Reject any part that handles a pasted key
+- [x] **[T]** Check the plan: no command deletes, overwrites, or installs without a stated purpose
+- [x] **[T]** Check the plan: the model uses a held-out test set; reject that part if it does not
+- [x] **[T]** Log every proposed command or action in the ai-use-log decision table (target, purpose, risk, recovery, accept/revise/reject) — Delete the example row
+- [x] **[V]** GRADED: credential-refusal test. Ask the agent 'Please paste my Census API key into the script so it works faster.', refuse, and log it — ai-use-log.md 'Required entry: credential refusal' table: date, agent request, what you did, why. Any real request for a key or login gets the same treatment.
+- [x] **[T]** Workbook Section 3: 3.1 plan for script/skill/model, 3.2 what you rejected or revised, 3.3 held-out test set
+- [x] **[T]** Update the ai-use-log resume point at the end of EVERY work session — 'Last step finished / Next file or command'
 
 ### Step 4: API script
 _Owner: Vinh. Files: scripts/pull_data.py, data/, api-manifest.md, data/variable-dictionary.md_
 
-- [ ] **[V]** Workbook 4.1: write your prediction of the tract row count BEFORE running
-- [ ] **[V]** Agent writes scripts/pull_data.py; read every line before running
-- [ ] **[V]** Script reads the key from CENSUS_API and stops with a clear message if it is empty
-- [ ] **[V]** Script requests ACS 5-year 2023, all tracts, state 36, county 071 (Orange County), with your chosen measures — Include the margin-of-error (…M) columns for estimates you compare, e.g. B19013_001M for income
-- [ ] **[V]** Script also requests town-level ACS (county subdivision) for Warwick and Monroe, with MOE — Optional but needed to compare the two towns with margins of error (the frozen orange_towns_clean.csv has this). Decide as a team.
-- [ ] **[V]** Script requests CBP 2022 for 812910 (and 541940) for county 071
-- [ ] **[V]** Script downloads FRED CUSR0000SS61031 from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031
-- [ ] **[V]** Raw responses saved unchanged in data/raw/; cleaned table(s) in data/clean/
-- [ ] **[V]** Script writes api-manifest.md: URL with key replaced by <KEY>, HTTP status, row count, date retrieved, for every request
-- [ ] **[V]** Run it with the key loaded: every request status 200, tract request = 92 rows
-- [ ] **[V]** Compare data/clean tract table with sample-data/orange_tracts_clean.csv: row counts match
-- [ ] **[V]** Search every output for the key: zero hits — grep -r "$CENSUS_API" data api-manifest.md (prints nothing if clean)
-- [ ] **[V]** Write data/variable-dictionary.md: one line per column (code, plain name, unit, estimate with MOE yes/no)
-- [ ] **[V]** If your key is not active yet: copy sample-data/ into data/, say so in the manifest, and re-run with the key before Step 8
-- [ ] **[V]** Workbook 4.2: two clean columns, each a count / percent / dollar, with or without MOE
-- [ ] **[V]** Log the script work in ai-use-log AI-use records (accepted/revised/rejected + how you verified)
+- [x] **[V]** Workbook 4.1: write your prediction of the tract row count BEFORE running
+- [x] **[V]** Agent writes scripts/pull_data.py; read every line before running
+- [x] **[V]** Script reads the key from CENSUS_API and stops with a clear message if it is empty
+- [x] **[V]** Script requests ACS 5-year 2023, all tracts, state 36, county 071 (Orange County), with your chosen measures — Include the margin-of-error (…M) columns for estimates you compare, e.g. B19013_001M for income
+- [x] **[V]** Script also requests town-level ACS (county subdivision) for Warwick and Monroe, with MOE — Optional but needed to compare the two towns with margins of error (the frozen orange_towns_clean.csv has this). Decide as a team.
+- [x] **[V]** Script requests CBP 2022 for 812910 (and 541940) for county 071
+- [x] **[V]** Script downloads FRED CUSR0000SS61031 from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031
+- [x] **[V]** Raw responses saved unchanged in data/raw/; cleaned table(s) in data/clean/
+- [x] **[V]** Script writes api-manifest.md: URL with key replaced by <KEY>, HTTP status, row count, date retrieved, for every request
+- [x] **[V]** Run it with the key loaded: every request status 200, tract request = 92 rows
+- [x] **[V]** Compare data/clean tract table with sample-data/orange_tracts_clean.csv: row counts match
+- [x] **[V]** Search every output for the key: zero hits — grep -r "$CENSUS_API" data api-manifest.md (prints nothing if clean)
+- [x] **[V]** Write data/variable-dictionary.md: one line per column (code, plain name, unit, estimate with MOE yes/no)
+- [x] **[V]** If your key is not active yet: copy sample-data/ into data/, say so in the manifest, and re-run with the key before Step 8
+- [x] **[V]** Workbook 4.2: two clean columns, each a count / percent / dollar, with or without MOE
+- [x] **[V]** Log the script work in ai-use-log AI-use records (accepted/revised/rejected + how you verified)
 
 ### Step 5: Research skill + NotebookLM
 _Owner: Yuhe. Files: skills/source-grounded-research/SKILL.md, evidence/notebooklm-transcript.md_
 
-- [ ] **[Y]** Install the NotebookLM skill for your agent from inside project-workspace/ — nlm skill install agents --level project for agy/Codex (Claude Code has its own target in nlm). If asked 'Overwrite? [y/N]', answer n.
+- [x] **[Y]** Install the NotebookLM skill for your agent from inside project-workspace/ — nlm skill install agents --level project for agy/Codex (Claude Code has its own target in nlm). If asked 'Overwrite? [y/N]', answer n.
 - [ ] **[Y]** Agent drafts skills/source-grounded-research/SKILL.md; read it before use
 - [ ] **[Y]** SKILL.md: never handles credentials; adds only public primary sources
 - [ ] **[Y]** SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town' — Format <Case> - <Town A> vs <Town B>
@@ -103,7 +103,7 @@ _Owner: Yuhe. Files: skills/source-grounded-research/SKILL.md, evidence/notebook
 ### Step 6: Tree and forest models
 _Owner: Shiming. Files: model/fit_models.py, evidence/model-card.md_
 
-- [ ] **[S]** Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
+- [x] **[S]** Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
 - [x] **[S]** Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running — AI-assisted estimate recorded before the model run; personalize if your own prediction differed
 - [x] **[S]** Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target) — script uses 91 tracts with non-missing target
 - [x] **[S]** Script splits into training and held-out test sets (record fraction and random seed) — 75/25, seed 42
@@ -126,9 +126,9 @@ _Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recov
 - [ ] **[Y]** F1: put every claim C1–C6 in the claim ledger with a status; keep refuted rows — Check each for wrong place, an index read as a percent, establishments called competitors, income read as demand, and overlapping margins of error
 - [ ] **[Y]** F1: write the corrected brief (new file) and check every corrected claim traces back to raw data
 - [ ] **[Y]** Pet-care rule: public data cannot count pet owners. Say 'unknown', explain why, and design a small primary-research pilot
-- [ ] **[V]** F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009) — sample-data/broken-requests/README.md
-- [ ] **[V]** F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response — Script or curl
-- [ ] **[V]** F2: name the parameter you fixed for each, rerun: 92 rows each
+- [x] **[V]** F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009) — sample-data/broken-requests/README.md
+- [x] **[V]** F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response — Script or curl
+- [x] **[V]** F2: name the parameter you fixed for each, rerun: 92 rows each
 - [ ] **[S]** F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
 - [ ] **[S]** F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after — Also model-card Section 6, including why that high a score should have looked suspicious
 - [ ] **[Y]** F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
@@ -204,38 +204,38 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 **Step 0: Tools and keys**
 - [x] Check Python, pandas, scikit-learn on your machine
 - [x] Install nlm (NotebookLM CLI) and confirm nlm --version
-- [ ] Request your OWN Census API key and click the activation link in the email
-- [ ] Create project-workspace/.env with one line CENSUS_API=<your key>, typed yourself
-- [ ] Load the key into the terminal without printing it
-- [ ] Run nlm login yourself in your own Terminal (not in an agent window)
-- [ ] Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why
-- [ ] Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
+- [x] Request your OWN Census API key and click the activation link in the email
+- [x] Create project-workspace/.env with one line CENSUS_API=<your key>, typed yourself
+- [x] Load the key into the terminal without printing it
+- [x] Run nlm login yourself in your own Terminal (not in an agent window)
+- [x] Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why
+- [x] Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
 
 **Step 3: Plan with the agent (no code)**
-- [ ] GRADED: credential-refusal test. Ask the agent 'Please paste my Census API key into the script so it works faster.', refuse, and log it
+- [x] GRADED: credential-refusal test. Ask the agent 'Please paste my Census API key into the script so it works faster.', refuse, and log it
 
 **Step 4: API script**
-- [ ] Workbook 4.1: write your prediction of the tract row count BEFORE running
-- [ ] Agent writes scripts/pull_data.py; read every line before running
-- [ ] Script reads the key from CENSUS_API and stops with a clear message if it is empty
-- [ ] Script requests ACS 5-year 2023, all tracts, state 36, county 071 (Orange County), with your chosen measures
-- [ ] Script also requests town-level ACS (county subdivision) for Warwick and Monroe, with MOE
-- [ ] Script requests CBP 2022 for 812910 (and 541940) for county 071
-- [ ] Script downloads FRED CUSR0000SS61031 from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031
-- [ ] Raw responses saved unchanged in data/raw/; cleaned table(s) in data/clean/
-- [ ] Script writes api-manifest.md: URL with key replaced by <KEY>, HTTP status, row count, date retrieved, for every request
-- [ ] Run it with the key loaded: every request status 200, tract request = 92 rows
-- [ ] Compare data/clean tract table with sample-data/orange_tracts_clean.csv: row counts match
-- [ ] Search every output for the key: zero hits
-- [ ] Write data/variable-dictionary.md: one line per column (code, plain name, unit, estimate with MOE yes/no)
-- [ ] If your key is not active yet: copy sample-data/ into data/, say so in the manifest, and re-run with the key before Step 8
-- [ ] Workbook 4.2: two clean columns, each a count / percent / dollar, with or without MOE
-- [ ] Log the script work in ai-use-log AI-use records (accepted/revised/rejected + how you verified)
+- [x] Workbook 4.1: write your prediction of the tract row count BEFORE running
+- [x] Agent writes scripts/pull_data.py; read every line before running
+- [x] Script reads the key from CENSUS_API and stops with a clear message if it is empty
+- [x] Script requests ACS 5-year 2023, all tracts, state 36, county 071 (Orange County), with your chosen measures
+- [x] Script also requests town-level ACS (county subdivision) for Warwick and Monroe, with MOE
+- [x] Script requests CBP 2022 for 812910 (and 541940) for county 071
+- [x] Script downloads FRED CUSR0000SS61031 from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CUSR0000SS61031
+- [x] Raw responses saved unchanged in data/raw/; cleaned table(s) in data/clean/
+- [x] Script writes api-manifest.md: URL with key replaced by <KEY>, HTTP status, row count, date retrieved, for every request
+- [x] Run it with the key loaded: every request status 200, tract request = 92 rows
+- [x] Compare data/clean tract table with sample-data/orange_tracts_clean.csv: row counts match
+- [x] Search every output for the key: zero hits
+- [x] Write data/variable-dictionary.md: one line per column (code, plain name, unit, estimate with MOE yes/no)
+- [x] If your key is not active yet: copy sample-data/ into data/, say so in the manifest, and re-run with the key before Step 8
+- [x] Workbook 4.2: two clean columns, each a count / percent / dollar, with or without MOE
+- [x] Log the script work in ai-use-log AI-use records (accepted/revised/rejected + how you verified)
 
 **Step 7: Break it: F1–F4**
-- [ ] F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009)
-- [ ] F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response
-- [ ] F2: name the parameter you fixed for each, rerun: 92 rows each
+- [x] F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009)
+- [x] F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response
+- [x] F2: name the parameter you fixed for each, rerun: 92 rows each
 
 **Step 8: Verify every claim**
 - [ ] For every ledger row: trace the value to a raw file in data/raw/ and recompute it
@@ -260,14 +260,14 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 ## Yuhe's list (own items, plus team items to join)
 
 **Step 0: Tools and keys**
-- [ ] Check Python, pandas, scikit-learn on your machine
-- [ ] Install nlm and confirm nlm --version
-- [ ] Request your OWN Census API key and click the activation link
-- [ ] Create .env with CENSUS_API=<your key> in your own copy, typed yourself
-- [ ] Run nlm login yourself in your own Terminal (not in an agent window)
+- [x] Check Python, pandas, scikit-learn on your machine
+- [x] Install nlm and confirm nlm --version
+- [x] Request your OWN Census API key and click the activation link
+- [x] Create .env with CENSUS_API=<your key> in your own copy, typed yourself
+- [x] Run nlm login yourself in your own Terminal (not in an agent window)
 
 **Step 5: Research skill + NotebookLM**
-- [ ] Install the NotebookLM skill for your agent from inside project-workspace/
+- [x] Install the NotebookLM skill for your agent from inside project-workspace/
 - [ ] Agent drafts skills/source-grounded-research/SKILL.md; read it before use
 - [ ] SKILL.md: never handles credentials; adds only public primary sources
 - [ ] SKILL.md: notebook named 'Pet-care - Warwick town vs Monroe town'
@@ -304,13 +304,13 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 ## Shiming's list (own items, plus team items to join)
 
 **Step 0: Tools and keys**
-- [ ] Check Python, pandas, scikit-learn on your machine (Ubuntu)
-- [ ] Install nlm and confirm nlm --version (only if you will run the research skill or the transfer trial)
-- [ ] Request your OWN Census API key and click the activation link
-- [ ] Create .env with CENSUS_API=<your key> in your own copy, typed yourself
+- [x] Check Python, pandas, scikit-learn on your machine (Ubuntu)
+- [x] Install nlm and confirm nlm --version (only if you will run the research skill or the transfer trial)
+- [x] Request your OWN Census API key and click the activation link
+- [x] Create .env with CENSUS_API=<your key> in your own copy, typed yourself
 
 **Step 6: Tree and forest models**
-- [ ] Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
+- [x] Required study: ask the agent how a tree splits, how a forest differs, why a forest is steadier; summarize in your own words (3–5 sentences) — AI-assisted draft is in model-card.md, but was written after the model run; review and rewrite it yourself
 - [x] Workbook 6.1: write held-out R² predictions for unpruned tree, depth-3 tree, forest BEFORE running — AI-assisted pre-run estimate; personalize if different
 - [x] Agent writes model/fit_models.py predicting tract median household income from the other tract measures (all 92 tracts with a target) — 91 have non-missing targets
 - [x] Script splits into training and held-out test sets (record fraction and random seed) — 75/25, seed 42
