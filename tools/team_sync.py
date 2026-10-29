@@ -227,7 +227,15 @@ def cmd_sync(a):
             f"from the ticks ({len(done)}/{len(DATA['items'])} done).\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>")
         out = subprocess.run(["git", "-C", str(REPO), "push", "-q"], capture_output=True, text=True)
         if out.returncode != 0:
-            sys.exit(f"STOP: push failed (nothing forced): {out.stderr.strip()}")
+            # Someone pushed meanwhile: merge their commits once (never rebase or force), then retry.
+            m = subprocess.run(["git", "-C", str(REPO), "pull", "--no-rebase", "--no-edit", "-q"], capture_output=True, text=True)
+            if m.returncode != 0:
+                subprocess.run(["git", "-C", str(REPO), "merge", "--abort"], capture_output=True)
+                sys.exit("STOP: a teammate pushed changes that conflict with this sync. Merge aborted; nothing was pushed. "
+                         "Vinh must resolve it by hand.")
+            out = subprocess.run(["git", "-C", str(REPO), "push", "-q"], capture_output=True, text=True)
+            if out.returncode != 0:
+                sys.exit(f"STOP: push failed again (nothing forced): {out.stderr.strip()}")
         pushed = git("rev-parse", "--short", "HEAD")
         head = pushed
 
