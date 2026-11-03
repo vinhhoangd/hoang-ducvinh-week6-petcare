@@ -60,7 +60,7 @@ Residual method: each tract was predicted by a 500-tree random forest in shuffle
 
 ## 6. Leakage check (Failure F3)
 
-- Prediction BEFORE running `sample-data/leakage_starter_table.csv`: held-out R2 will be ______.
+- Prediction BEFORE running `sample-data/leakage_starter_table.csv`: held-out R2 will be **about 0.5** (Vinh, 2026-11-02 22:17, written before the test ran; Shiming had not run F3 yet).
 - Observed held-out R2 with the leaking column:
 - Which column leaks, and how do you know?
 - Held-out R2 after removing it:
