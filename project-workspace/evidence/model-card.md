@@ -61,10 +61,10 @@ Residual method: each tract was predicted by a 500-tree random forest in shuffle
 ## 6. Leakage check (Failure F3)
 
 - Prediction BEFORE running `sample-data/leakage_starter_table.csv`: held-out R2 will be **about 0.5** (Vinh, 2026-11-02 22:17, written before the test ran; Shiming had not run F3 yet).
-- Observed held-out R2 with the leaking column:
-- Which column leaks, and how do you know?
-- Held-out R2 after removing it:
-- Why a score that high should have made you suspicious:
+- Observed held-out R2 with the leaking column: **0.989** (train 0.996, held-out MAE $3,127; `model/leakage_test.py`, same 25% split, seed 42, 500-tree forest; 86 rows because 5 have no `median_rent`).
+- Which column leaks, and how do you know? **`income_band`.** It carries 0.969 of the forest's importance, its 16 values cover income ranges that never overlap, and it equals `median_income` ÷ 10,000 rounded down in 86 of 86 rows: it is the target itself, cut into $10,000 bands.
+- Held-out R2 after removing it: **0.781** (train 0.933, MAE $12,996). This is not comparable with the Section 2 forest (0.552), which used 91 rows and no `median_rent`.
+- Why a score that high should have made you suspicious: A held-out R² of 0.989 from survey estimates whose own margins of error are often ±$10,000 or more is not believable, and one feature carrying 97% of the importance means the model is reading the answer, not learning a pattern.
 
 ## 7. Limits (required)
 

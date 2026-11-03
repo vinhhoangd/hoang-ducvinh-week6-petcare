@@ -73,7 +73,7 @@ A forest averages many trees built from different samples and feature choices. T
 
 - **F1 (Seeded brief):** We predicted claims C1 (pet counts), C2 (veterinarians as groomers), and C3 (national trends in Monroe) would fail because public sources collect no pet counts; in testing, C1 and C2 were refuted, C3 was unsupported, and C6 had overlapping confidence intervals, which we repaired by creating `evidence/corrected-brief.md` labeling pet counts as unknown and recommending a 4-week primary pilot.
 - **F2 (Broken requests):** We predicted 0 rows for missing leading zero (`county:71`), wrong county tracts for Chenango (`county:017`), and fewer tracts for 2009 vintage (`vintage:2009`); testing produced HTTP 204 (0 rows), 16 Chenango tracts, and 67 old tracts, which we repaired by correcting the parameters to `county:071` and `data/2023/` to yield exactly 92 Orange County tracts.
-- **F3 (Leakage table):** We predicted including `income_band` would produce an artificially inflated, near-perfect test score; observed R2 confirmed severe target leakage, which was repaired by removing `income_band` so the model learns only from legitimate non-target demographic features.
+- **F3 (Leakage):** We predicted a held-out R² of about 0.5; the forest scored 0.989 because `income_band` is median income ÷ 10,000 rounded down (86 of 86 rows), and removing that column dropped the score to 0.781.
 - **F4 (MOE pair):** We predicted Warwick would lead on point estimate ($117,680 vs $116,019) but their margin-of-error ranges would overlap; testing confirmed an overlap of $17,210 between Warwick ($109,075–$126,285) and Monroe ($102,356–$129,682), which we repaired by concluding the towns are statistically indistinguishable on income and refusing to use household wealth to justify opening in either location.
 
 7.2 How many ledger claims ended as supported / proxy / unsupported / refuted?
@@ -85,6 +85,8 @@ After Step 8 verification (2026-10-29 15:17, Vinh), across the 11 claims in `evi
 - **Refuted:** 2 (C1, C2)
 
 Step 8 changed three statuses after opening the sources: **L2** refuted → supported and **L3** unsupported → supported (both claims are true descriptions of their sources: FRED's page says "Index Dec 1997=100 … U.S. City Average"; none of the 28,299 ACS 2023 variables counts pets), and **L5** refuted → unsupported (the CBP About page simply does not define 812910 or 541940; nothing shows the claim is false). No rows were deleted.
+
+**Decision-frame prediction check (Step 7).** We predicted (65% confident) that the town with the larger population would look better. Population is indeed larger in Warwick town (31,909 vs 21,299, `data/raw/acs5_towns.json`), but it does not count pet owners (ledger L3), and the condition that would have changed our mind — Monroe's income proven higher without margin-of-error overlap — did not happen: the incomes are statistically indistinguishable (L4, F4). So the prediction is only partly supported: Warwick is bigger, but no public number shows it has more pet-care demand.
 
 ## Section 8. Transfer and reflection (Steps 9 and 10)
 8.1 First confusing instruction found in the transfer trial, and your fix:
