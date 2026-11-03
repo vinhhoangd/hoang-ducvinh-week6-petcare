@@ -129,12 +129,12 @@ _Lead: Yuhe. Write the prediction BEFORE each test. File: evidence/failure-recov
 - [x] **[V]** F2 prediction first: expected rows for each broken request A (county 71), B (county 017), C (year 2009) — sample-data/broken-requests/README.md
 - [x] **[V]** F2: run the 3 URLs with your key typed into the terminal only (never into a file); save each response — Script or curl
 - [x] **[V]** F2: name the parameter you fixed for each, rerun: 92 rows each
-- [ ] **[S]** F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
-- [ ] **[S]** F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after — Also model-card Section 6, including why that high a score should have looked suspicious
+- [x] **[S]** F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
+- [x] **[S]** F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after — Also model-card Section 6, including why that high a score should have looked suspicious
 - [x] **[Y]** F4 prediction first: which town ranks first in sample-data/moe_pair.csv (Warwick vs Monroe)
 - [x] **[Y]** F4: write both income ranges, conclude 'not distinguishable', downgrade the claim to proxy or unknown
 - [x] **[Y]** Fill every row of failure-recovery-log.md (prediction, evidence file, observed, diagnosis, smallest repair, repeat test) and delete the example section
-- [ ] **[T]** Workbook 7.1: one sentence each for F1–F4 (prediction, what happened, repair)
+- [x] **[T]** Workbook 7.1: one sentence each for F1–F4 (prediction, what happened, repair)
 
 ### Step 8: Verify every claim
 _Owner: Vinh. File: evidence/claim-ledger.csv_
@@ -151,7 +151,7 @@ _Owner: Vinh. File: evidence/claim-ledger.csv_
 _Run by someone who did NOT write the script. File: evidence/transfer-trial.md_
 
 - [ ] **[T]** Choose the transfer tester (not Vinh, who wrote the script; e.g. Shiming on Ubuntu or a student from another team) and record it in team-agreement.md
-- [ ] **[S]** Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only
+- [x] **[S]** Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only
 - [ ] **[V]** Record in transfer-trial.md: who, date, machine, steps handed over, minutes to first success, every intervention, first confusing instruction
 - [ ] **[V]** Fix that confusing instruction, rerun, and record the rerun result. Never copy the tester's key
 - [ ] **[T]** Workbook 8.1: first confusing instruction and your fix
@@ -165,7 +165,7 @@ _Whole team. Files: decision-brief.md, README.md, logs, workbook_
 - [ ] **[T]** README.md for the owner: 3 things the data can tell (tied to brief claims), 2+ it cannot, how to re-run (2 commands, key never in a file), one limitation, one next step
 - [ ] **[T]** ai-use-log.md complete: agent used, credential refusal, decision table, AI-use records; delete example rows
 - [ ] **[T]** team-agreement.md complete: team number, agents, key holders per machine, meeting times, how you settle disagreements, transfer-trial plan, safety promise signed
-- [ ] **[V]** team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
+- [x] **[V]** team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
 - [ ] **[Y]** team-contributions.md: Yuhe's files, ledger rows verified, one thing the AI got wrong
 - [ ] **[S]** team-contributions.md: Shiming's files, ledger rows verified, one thing the AI got wrong
 - [ ] **[T]** team-contributions.md: effort percentages summing to 100, and any disagreement
@@ -250,7 +250,7 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 - [ ] Fix that confusing instruction, rerun, and record the rerun result. Never copy the tester's key
 
 **Step 10: Brief, README, logs, workbook**
-- [ ] team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
+- [x] team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
 - [ ] Workbook 8.3 Feynman check in your own words (3 sentences, no jargon): why a precise model score does not prove a recommendation
 
 **Demo: Live demonstration (about 8 min, no slides)**
@@ -327,11 +327,11 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 - [ ] Workbook 6.3: explain in your own words why a forest can beat one tree on held-out data; AI-assisted draft is entered and needs your rewrite
 
 **Step 7: Break it: F1–F4**
-- [ ] F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
-- [ ] F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after
+- [x] F3 prediction first: held-out R² for sample-data/leakage_starter_table.csv
+- [x] F3: run, record R² with the leak, find the leaking column and how you know, remove it, record R² after
 
 **Step 9: Transfer trial**
-- [ ] Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only
+- [x] Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only
 
 **Step 10: Brief, README, logs, workbook**
 - [ ] team-contributions.md: Shiming's files, ledger rows verified, one thing the AI got wrong
