@@ -91,7 +91,11 @@ Step 8 changed three statuses after opening the sources: **L2** refuted → supp
 ## Section 8. Transfer and reflection (Steps 9 and 10)
 8.1 First confusing instruction found in the transfer trial, and your fix:
 
+*(The transfer trial has not been run yet; it must be run by a teammate who did not write the script, on their own machine with their own key.)*
+
 8.2 What would break first if the client actually used this pipeline next year?
+
+The data years are written into `scripts/pull_data.py` (ACS 2023, CBP 2022), so next year it would quietly keep pulling old data while looking successful; someone has to change the years and re-check that the tract count is still 92. Second, the tract-to-town mapping is copied from the course's frozen sample file, so any change to tract boundaries would put tracts in the wrong town without an error.
 
 8.3 Feynman check (three sentences or fewer, no jargon): why a precise-looking model score does not prove a recommendation.
 

@@ -3,7 +3,9 @@
 For the client: what public data says about opening a dog daycare with grooming in Warwick town or Monroe town (Orange County, New York), and how to rebuild the analysis.
 
 ## What the data can tell you
-- *(Filled in after Steps 7–8: three bullets, each tied to a numbered claim in `decision-brief.md`.)*
+- **The two towns cannot be told apart on household income.** Warwick $117,680 ± $8,605 and Monroe $116,019 ± $13,663 overlap (brief claim 1).
+- **Warwick town has about half again as many residents** (31,909 vs 21,299), a bigger pool of possible customers but not a count of dog owners (brief claim 2).
+- **The county has 24 pet-care businesses with employees** (2022), which shows the trade exists locally but not who competes with you in either town (brief claim 4).
 
 ## What it cannot tell you
 - **How many households own a dog or cat, or what they spend on pet care.** No public dataset used here counts pets; every population, income or family number is only a stand-in.
@@ -41,4 +43,4 @@ Query with `nlm notebook query petcare "<question>"`.
 - The Census numbers are survey estimates averaged over 2019–2023, and each town is made of only a few neighbourhoods (8 tracts in Warwick, 5 in Monroe), so small differences between the towns can be noise.
 
 ## One concrete next step for the owner
-- *(Filled in after the team's recommendation in `decision-brief.md`.)*
+- **Pilot before signing a lease:** for four weeks, collect paid pre-registrations and run one pop-up daycare-and-grooming Saturday in each town, and ask both town clerks how many dogs are licensed. Open in the town with clearly more paid sign-ups (see `decision-brief.md`).

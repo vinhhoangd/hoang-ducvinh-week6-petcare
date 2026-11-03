@@ -18,10 +18,10 @@
 
 ## Working rules
 
-- Who holds the Census key on which machine (each person requests their own; never share a key):
-- When and where we meet for the four work sessions:
-- How we decide when two of us disagree about whether a claim is supported:
-- Who does the transfer trial on whose machine (Step 9):
+- Who holds the Census key on which machine (each person requests their own; never share a key): Vinh — own key in `project-workspace/.env` on his MacBook; Yuhe — own key on her MacBook; Shiming — own key on his Ubuntu laptop (each ticked on the shared checklist). No key is shared or written anywhere else.
+- When and where we meet for the four work sessions: in class for sessions 1–2; after that we worked online, sharing work through the GitHub repo (vinhhoangd/hoang-ducvinh-week6-petcare) and the shared checklist page.
+- How we decide when two of us disagree about whether a claim is supported: the evidence decides — whoever disagrees names the raw file or cited passage; if it is still unclear, the claim gets the weaker status and both reasons go in its ledger note (as in Step 8 for L2, L3, L5).
+- Who does the transfer trial on whose machine (Step 9): Shiming on his Ubuntu laptop with his own key (he did not write the script); Yuhe on her MacBook if Shiming cannot.
 
 ## Safety promise
 
