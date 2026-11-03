@@ -1,7 +1,5 @@
 # Model Card (Step 6)
 
-A model card is a one-page honest description of a model: what it predicts, what it was trained on, how well it did on data it had not seen, and where it should not be trusted. Fill every section. Numbers must come from your own run; paste the command or notebook cell that produced each one into the "Where I got it" column.
-
 ## 1. What the model predicts
 
 - Target (the thing predicted): *Tract median household income (`median_income`) unless your instructor says otherwise.*
@@ -18,8 +16,6 @@ A model card is a one-page honest description of a model: what it predicts, what
 | Decision tree, depth limited to 3 | 0.866 | 0.172 | $20,463 | `cd project-workspace && .venv/bin/python model/fit_models.py` |
 | Random forest (500 trees) | 0.954 | 0.552 | $16,581 | `cd project-workspace && .venv/bin/python model/fit_models.py` |
 
-*R2 near 1.0 means the model reproduces the answer; near 0 means it is no better than guessing the average. A huge gap between Train R2 and Held-out R2 means the model memorized.*
-
 ## 3. Required study: how does a tree work and why is a forest steadier?
 
 1. How does a decision tree decide where to split? A regression tree tests feature-and-threshold splits and chooses one that reduces squared prediction error within the resulting groups; it repeats this process, and each leaf predicts its training targets' average.
@@ -35,8 +31,6 @@ Now check the claim on your data. Fill this in using your table above:
 
 ## 4. Feature importance
 
-*List the top three features for the forest and what each one could mean for the client. Importance is not cause: a feature can rank high because it moves with income, not because it creates it.*
-
 | Rank | Feature | Importance | What it could mean | What it does NOT prove |
 |---|---|---|---|---|
 | 1 | `pct_renter` | 0.445 | Tracts with different renter shares may also differ in household income and housing context. | Renting causes income differences, or renters own more or fewer pets. |
@@ -44,8 +38,6 @@ Now check the claim on your data. Fill this in using your table above:
 | 3 | `pct_commute_30plus` | 0.122 | Long commutes may co-vary with tract income or work patterns. | Commuters need dog daycare, own pets, or will buy this service. |
 
 ## 5. Your town versus the rest of the county
-
-*Use out-of-sample residuals (actual minus predicted, with each tract predicted by a model that did not train on it). A town whose tracts are consistently above the prediction earns more than its features would suggest.*
 
 | Town | Number of tracts | Mean actual income | Mean residual | Reading |
 |---|---|---|---|---|

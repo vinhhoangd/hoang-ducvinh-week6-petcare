@@ -1,7 +1,5 @@
 # Decision Frame (Step 1 and Step 2)
 
-Fill this in **before** you ask any AI agent to do analysis. Write in your own words. Keep every answer short and specific. Replace every line that begins with `>` with your answer, and delete the guidance text in italics when you are done.
-
 ## Team and case
 
 - Team members: Team 3 — Vinh Hoang, Yuhe Luo, Shiming Wan
