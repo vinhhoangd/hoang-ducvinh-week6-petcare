@@ -150,7 +150,7 @@ _Owner: Vinh. File: evidence/claim-ledger.csv_
 ### Step 9: Transfer trial
 _Run by someone who did NOT write the script. File: evidence/transfer-trial.md_
 
-- [ ] **[T]** Choose the transfer tester (not Vinh, who wrote the script; e.g. Shiming on Ubuntu or a student from another team) and record it in team-agreement.md
+- [x] **[T]** Choose the transfer tester (not Vinh, who wrote the script; e.g. Shiming on Ubuntu or a student from another team) and record it in team-agreement.md
 - [x] **[S]** Tester: copy project-workspace/ into a new empty folder, add your own key to .env, run the script and skill from the README only
 - [ ] **[V]** Record in transfer-trial.md: who, date, machine, steps handed over, minutes to first success, every intervention, first confusing instruction
 - [ ] **[V]** Fix that confusing instruction, rerun, and record the rerun result. Never copy the tester's key
@@ -159,10 +159,10 @@ _Run by someone who did NOT write the script. File: evidence/transfer-trial.md_
 ### Step 10: Brief, README, logs, workbook
 _Whole team. Files: decision-brief.md, README.md, logs, workbook_
 
-- [ ] **[T]** decision-brief.md (blank file, max 3 pages): one-sentence decision + recommendation (proceed / pilot / investigate further / do not proceed)
-- [ ] **[T]** Brief: 5–8 numbered claims, each tied to a ledger row
+- [x] **[T]** decision-brief.md (blank file, max 3 pages): one-sentence decision + recommendation (proceed / pilot / investigate further / do not proceed)
+- [x] **[T]** Brief: 5–8 numbered claims, each tied to a ledger row
 - [ ] **[T]** Brief: the main uncertainty and what primary research would reduce it; signed with all three names
-- [ ] **[T]** README.md for the owner: 3 things the data can tell (tied to brief claims), 2+ it cannot, how to re-run (2 commands, key never in a file), one limitation, one next step
+- [x] **[T]** README.md for the owner: 3 things the data can tell (tied to brief claims), 2+ it cannot, how to re-run (2 commands, key never in a file), one limitation, one next step
 - [ ] **[T]** ai-use-log.md complete: agent used, credential refusal, decision table, AI-use records; delete example rows
 - [ ] **[T]** team-agreement.md complete: team number, agents, key holders per machine, meeting times, how you settle disagreements, transfer-trial plan, safety promise signed
 - [x] **[V]** team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
@@ -173,15 +173,15 @@ _Whole team. Files: decision-brief.md, README.md, logs, workbook_
 - [ ] **[V]** Workbook 8.3 Feynman check in your own words (3 sentences, no jargon): why a precise model score does not prove a recommendation
 - [ ] **[Y]** Practise the Feynman check out loud (every teammate must explain all three parts)
 - [ ] **[S]** Practise the Feynman check out loud (every teammate must explain all three parts)
-- [ ] **[T]** No example rows or template guidance left anywhere (ledger EX1/EX2, transcript, model card, failure log, ai-use log)
+- [x] **[T]** No example rows or template guidance left anywhere (ledger EX1/EX2, transcript, model card, failure log, ai-use log)
 
 ### Submit: ZIP, Drive, Canvas
 _Whole team_
 
-- [ ] **[T]** Required tree present: README, ai-use-log, completed-workbook, decision-brief, team files, api-manifest, scripts/pull_data.py, SKILL.md, model/fit_models.py, data/raw, data/clean, data/variable-dictionary.md, all evidence files
-- [ ] **[T]** Copy project-workspace/, delete .env from the copy, search the copy for your key: zero hits
+- [x] **[T]** Required tree present: README, ai-use-log, completed-workbook, decision-brief, team files, api-manifest, scripts/pull_data.py, SKILL.md, model/fit_models.py, data/raw, data/clean, data/variable-dictionary.md, all evidence files
+- [x] **[T]** Copy project-workspace/, delete .env from the copy, search the copy for your key: zero hits
 - [ ] **[T]** Check the automatic 70/100 cap is not triggered: no unrepaired invented statistic, no wrong geography, no unsupported citation
-- [ ] **[T]** ZIP named Team3-Week6-4.zip
+- [x] **[T]** ZIP named Team3-Week6-4.zip
 - [ ] **[T]** Upload to the team's Google Drive folder, share so the instructor can view, submit the share URL in Canvas
 
 ### Demo: Live demonstration (about 8 min, no slides)
@@ -196,7 +196,7 @@ _Tick every box in evidence/demo-checklist.md before your slot_
 - [ ] **[Y]** moe_pair.csv: why Warwick and Monroe cannot be ranked
 - [ ] **[T]** Two things public data cannot tell the client + one cheap primary-research test
 - [ ] **[T]** Decision brief open; state the recommendation and explain one claim you downgraded and why
-- [ ] **[T]** Search of the ZIP for the key found zero hits; .env not in the archive
+- [x] **[T]** Search of the ZIP for the key found zero hits; .env not in the archive
 - [ ] **[T]** Every teammate knows which part they speak and operate; tick every box in evidence/demo-checklist.md
 
 ## Vinh's list (own items, plus team items to join)

@@ -26,3 +26,6 @@
 ## Safety promise
 
 We will not paste any key, token, or login into a prompt, log, screenshot, or archive. Signed (names):
+Duc Vinh Hoang
+Shiming Wan
+Yuhe Luo
