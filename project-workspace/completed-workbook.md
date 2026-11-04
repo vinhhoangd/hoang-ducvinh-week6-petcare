@@ -14,11 +14,11 @@ We added: any claim about how many households own pets, or how much they spend o
 ## Section 2. Tool check (Step 0)
 2.1 Which agent do you use, and which tool was missing at first? How did you fix it?
 
-Vinh uses Claude Code (neither `agy` nor `codex` is installed). Python 3.12.8, pandas 2.2.2 and scikit-learn 1.5.0 were already there. `nlm` was missing ("command not found"). The agent read the tool's GitHub README, checked that the PyPI package links to the same repo, and explained the install and its disclaimer. Vinh then personally ran `brew install uv` and `uv tool install notebooklm-mcp-cli`, and `nlm --version` printed 0.15.6. *(Yuhe and Shiming: add your own agent and anything that was missing on your machines.)*
+Vinh uses Claude Code (neither `agy` nor `codex` is installed). Python 3.12.8, pandas 2.2.2 and scikit-learn 1.5.0 were already there. `nlm` was missing ("command not found"). The agent read the tool's GitHub README, checked that the PyPI package links to the same repo, and explained the install and its disclaimer. Vinh then personally ran `brew install uv` and `uv tool install notebooklm-mcp-cli`, and `nlm --version` printed 0.15.6. Yuhe uses Antigravity (Gemini 3.8 Flash) and Shiming uses Copilot SDK in VS Code (from their own entries in `ai-use-log.md`).
 
 2.2 Where is your Census key stored, and how do you know it is not in your submission folder?
 
-In `project-workspace/.env`, one line `CENSUS_API=…`, typed by Vinh in `nano`. Git ignores it (`.gitignore` lists `.env`; `git status --ignored` shows `!! project-workspace/.env`). A ZIP does not obey `.gitignore`, so at submission we delete `.env` from the copy and search the copy for the key. *(Record that zero-hit search result here at submission.)*
+In `project-workspace/.env`, one line `CENSUS_API=…`, typed by Vinh in `nano`. Git ignores it (`.gitignore` lists `.env`; `git status --ignored` shows `!! project-workspace/.env`). A ZIP does not obey `.gitignore`, so at submission we delete `.env` from the copy and search the copy for the key. At submission (2026-11-04), `make-submission-zip.sh` copied the folder without `.env` and searched the copy for the key: 0 hits, and no `.env` in the ZIP.
 
 ## Section 3. Plan review (Step 3)
 3.1 What did the agent plan for (a) the script, (b) the research skill, (c) the model?
@@ -86,12 +86,14 @@ After Step 8 verification (2026-10-29 15:17, Vinh), across the 11 claims in `evi
 
 Step 8 changed three statuses after opening the sources: **L2** refuted → supported and **L3** unsupported → supported (both claims are true descriptions of their sources: FRED's page says "Index Dec 1997=100 … U.S. City Average"; none of the 28,299 ACS 2023 variables counts pets), and **L5** refuted → unsupported (the CBP About page simply does not define 812910 or 541940; nothing shows the claim is false). No rows were deleted.
 
+On 2026-11-03 three rows were added so that every number in `decision-brief.md` has a ledger row: L6 (town populations, proxy), L7 (Monroe renter share, supported), L8 (forest held-out error, supported). Final count across all 14 rows: **supported 7** (L1, L2, L3, L4, L7, L8, C6), **proxy 3** (C4, C5, L6), **unsupported 2** (L5, C3), **refuted 2** (C1, C2).
+
 **Decision-frame prediction check (Step 7).** We predicted (65% confident) that the town with the larger population would look better. Population is indeed larger in Warwick town (31,909 vs 21,299, `data/raw/acs5_towns.json`), but it does not count pet owners (ledger L3), and the condition that would have changed our mind — Monroe's income proven higher without margin-of-error overlap — did not happen: the incomes are statistically indistinguishable (L4, F4). So the prediction is only partly supported: Warwick is bigger, but no public number shows it has more pet-care demand.
 
 ## Section 8. Transfer and reflection (Steps 9 and 10)
 8.1 First confusing instruction found in the transfer trial, and your fix:
 
-*(The transfer trial has not been run yet; it must be run by a teammate who did not write the script, on their own machine with their own key.)*
+Not recorded. Shiming (the planned tester) ticked the trial on our checklist on 2026-11-03 but sent no details before submission, so we have no confusing instruction or fix to report; see `evidence/transfer-trial.md`.
 
 8.2 What would break first if the client actually used this pipeline next year?
 

@@ -4,7 +4,7 @@
 - Case claimed (1 to 5): **4, Pet-care business** (Warwick town vs Monroe town). Posted by Yuhe Luo in the Canvas "Week 6 team discussion", Oct 20, 2026, 2:48 PM.
 - Agent each of us uses (agy or Codex):
 - Yuhe: Antigravity, Gemini 3.8 Flash (Medium)
-- Shiming:
+- Shiming: Copilot SDK in VS Code
 - Vinh: Claude Code, Opus 5.5 (High)
 
 
