@@ -27,7 +27,7 @@ _Everyone, before anything else. Keys and logins are typed by each person, never
 - [x] **[V]** Run nlm login yourself in your own Terminal (not in an agent window) — Use the school account; if blocked, a personal Gmail is allowed (all data is public). If login fails twice, stop and ask the instructor.
 - [x] **[Y]** Run nlm login yourself in your own Terminal (not in an agent window) — If login fails twice, stop and ask the instructor about the Gmail fallback.
 - [x] **[V]** Fill evidence/tool-check.md: Python, nlm, agent, key stored yes/no, NotebookLM login yes/no, which account and why — Never write any key, token, or cookie in the file. Python/pandas/nlm/agent rows are filled.
-- [ ] **[T]** Write down which agent each of you uses (agy, Codex, or Claude Code) — team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md
+- [x] **[T]** Write down which agent each of you uses (agy, Codex, or Claude Code) — team-agreement.md 'Agent each of us uses' and the 'Agent used' line at the top of ai-use-log.md
 - [x] **[V]** Workbook Section 2: 2.1 agent used + missing tool and fix, 2.2 where the key is stored and how you know it is not in the submission
 - [x] **[T]** Team number: Team 3 (Canvas group list) — Needed for the ZIP name Team3-Week6-4.zip and team-agreement.md
 
@@ -163,8 +163,8 @@ _Whole team. Files: decision-brief.md, README.md, logs, workbook_
 - [x] **[T]** Brief: 5–8 numbered claims, each tied to a ledger row
 - [ ] **[T]** Brief: the main uncertainty and what primary research would reduce it; signed with all three names
 - [x] **[T]** README.md for the owner: 3 things the data can tell (tied to brief claims), 2+ it cannot, how to re-run (2 commands, key never in a file), one limitation, one next step
-- [ ] **[T]** ai-use-log.md complete: agent used, credential refusal, decision table, AI-use records; delete example rows
-- [ ] **[T]** team-agreement.md complete: team number, agents, key holders per machine, meeting times, how you settle disagreements, transfer-trial plan, safety promise signed
+- [x] **[T]** ai-use-log.md complete: agent used, credential refusal, decision table, AI-use records; delete example rows
+- [x] **[T]** team-agreement.md complete: team number, agents, key holders per machine, meeting times, how you settle disagreements, transfer-trial plan, safety promise signed
 - [x] **[V]** team-contributions.md: Vinh's files, ledger rows verified, one thing the AI got wrong
 - [ ] **[Y]** team-contributions.md: Yuhe's files, ledger rows verified, one thing the AI got wrong
 - [ ] **[S]** team-contributions.md: Shiming's files, ledger rows verified, one thing the AI got wrong
